@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Compare — Family &amp; Friends Credit Card Comparison</title>
+  <meta name="description" content="Compare rewards credit cards based on your personal spending profile. Personalize credit values and choose transfer vs cash-back point valuations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="app-header">
+  <div>
+    <h1>💳 Card Compare</h1>
+  </div>
+  <span class="subtitle">Data sourced March 2026 · TPG &amp; Upgraded Points valuations</span>
+</header>
+
+<!-- ═══════════════════════════ TAB BAR ══════════════════════════ -->
+<nav class="tab-bar">
+  <button class="tab-btn active" data-tab="tab-profile">👤 My Profile</button>
+  <button class="tab-btn" data-tab="tab-cards">💳 Credit Cards</button>
+  <button class="tab-btn" data-tab="tab-points">📊 Point Valuations</button>
+</nav>
+
+<!-- ═══════════════════════════ PROFILE TAB ══════════════════════ -->
+<section class="tab-panel active" id="tab-profile">
+  <div class="section-header">
+    <div>
+      <h2>Spending Profile</h2>
+      <p>Enter your estimated annual spend by category. The app uses these to calculate how much rewards each card earns you.</p>
+    </div>
+  </div>
+
+  <div class="info-banner">
+    <span class="icon">💡</span>
+    <span>
+      Enter <strong>annual totals</strong> (or think monthly × 12). Your profile is saved in your browser session and updates card values in real time.
+      Rent/mortgage is included — <strong>Bilt cards</strong> earn points on housing with no transaction fee.
+    </span>
+  </div>
+
+  <div class="spend-total-bar">
+    <span class="label">📊 Total Annual Spend</span>
+    <span class="value" id="spend-total">—</span>
+  </div>
+
+  <div class="spending-grid" id="profile-spending-grid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CARDS TAB ════════════════════════ -->
+<section class="tab-panel" id="tab-cards">
+  <div class="section-header">
+    <div>
+      <h2>Credit Card Comparison</h2>
+      <p>Sorted by Year 1 return. Click any row to expand details and adjust credit utilization.</p>
+    </div>
+  </div>
+
+  <div class="info-banner">
+    <span class="icon">ℹ️</span>
+    <span>
+      <strong>Annual Rewards</strong> = (Spend × Earning Rate × Point Value) + Credits.
+      <strong>Year 1</strong> includes the sign-up bonus. <strong>Recurring</strong> is ongoing (no bonus).
+      Adjust how much of each credit you'll actually use by expanding a card row.
+    </span>
+  </div>
+
+  <div class="table-controls">
+    <div class="toggle-group">
+      <span class="toggle-label">Point value mode:</span>
+      <button class="toggle-btn" data-mode="transfer">Transfer Value</button>
+      <button class="toggle-btn active" data-mode="cashback">Cash Back Value</button>
+    </div>
+    <span style="font-size:12px;color:var(--text-muted);margin-left:auto">
+      Click a column header to sort · Click a row to expand
+    </span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="cards-table">
+      <thead>
+        <tr>
+          <th data-sort="name">Card <span class="sort-icon">↕</span></th>
+          <th data-sort="fee">Annual Fee <span class="sort-icon">↕</span></th>
+          <th data-sort="year1">Year 1 Return <span class="sort-icon">↓</span></th>
+          <th data-sort="recurring">Recurring Return <span class="sort-icon">↕</span></th>
+          <th>Annual Rewards Breakdown</th>
+          <th>Key Perks</th>
+        </tr>
+      </thead>
+      <tbody id="cards-tbody">
+        <tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-muted)">
+          <div class="spinner" style="margin:0 auto 12px"></div>
+          Loading card data…
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size:11px;color:var(--text-muted);margin-top:14px;line-height:1.6">
+    ⚠ <strong>Disclaimer:</strong> Card benefits, fees, and offers change frequently. Verify current terms with the card issuer before applying.
+    Points valuations are estimates from third-party sources (The Points Guy, Upgraded Points) and not guaranteed by card issuers.
+    Sign-up bonuses shown are representative offers as of March 2026 and are subject to issuer eligibility rules.
+  </p>
+</section>
+
+<!-- ═══════════════════════════ POINTS TAB ═══════════════════════ -->
+<section class="tab-panel" id="tab-points">
+  <div class="section-header">
+    <div>
+      <h2>Point &amp; Mile Valuations</h2>
+      <p>Third-party valuations used to calculate card returns. Sources: The Points Guy (March 2026), Upgraded Points, NerdWallet.</p>
+    </div>
+  </div>
+
+  <div class="info-banner">
+    <span class="icon">💡</span>
+    <span>
+      <strong>Cash Back value</strong> is what you get redeeming for statement credits/cash.
+      <strong>Transfer value</strong> reflects the best achievable value via airline/hotel transfer partners — requires more research but can be 2–3× more valuable.
+      These valuations power the card comparison table. Future updates to this file automatically reflect in all calculations.
+    </span>
+  </div>
+
+  <div class="valuations-grid" id="valuations-grid">
+    <!-- Populated by JS -->
+  </div>
+
+  <div class="card">
+    <div class="card-title">About These Valuations</div>
+    <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:12px">
+      Point valuations are <strong>not set by card issuers</strong> — they are independent estimates from rewards analysts.
+      Actual value you receive depends on how you redeem. Cash back / statement credits typically yield the
+      <em>floor</em> value; transfer partner sweet spots can yield 2–5× or more for premium flights.
+    </p>
+    <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:12px">
+      To update valuations: edit <code style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:12px">data/points-valuations.json</code>.
+      Each currency has a <code style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:12px">cashbackCpp</code> and
+      <code style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:12px">transferCpp</code> field (cents per point).
+      The website automatically picks up any changes.
+    </p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
+      <a href="https://thepointsguy.com/loyalty-programs/monthly-valuations/" target="_blank" rel="noopener"
+         style="color:var(--accent);font-size:12px;text-decoration:none">
+        → TPG Monthly Valuations
+      </a>
+      <a href="https://upgradedpoints.com/travel/points-and-miles-valuations/" target="_blank" rel="noopener"
+         style="color:var(--accent);font-size:12px;text-decoration:none">
+        → Upgraded Points Valuations
+      </a>
+      <a href="https://www.nerdwallet.com/travel/learn/airline-miles-and-hotel-points-valuations" target="_blank" rel="noopener"
+         style="color:var(--accent);font-size:12px;text-decoration:none">
+        → NerdWallet Valuations
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+</body>
+</html>

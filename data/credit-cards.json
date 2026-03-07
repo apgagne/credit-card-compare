@@ -1,0 +1,958 @@
+{
+  "_meta": {
+    "description": "Credit card data for comparison tool. Annual fees, earning rates, credits, perks, and sign-up bonuses. Earning rates are multipliers (e.g., 3 = 3x points per dollar). Sources: issuer websites and major rewards publications as of March 2026.",
+    "lastUpdated": "2026-03-07",
+    "spendingCategories": {
+      "dining": "Dining & Restaurants (including delivery)",
+      "groceries": "Groceries & Supermarkets",
+      "flights": "Flights (booked direct with airline or via portal)",
+      "hotels": "Hotels (booked direct or via portal)",
+      "gas": "Gas Stations & EV Charging",
+      "streaming": "Streaming Services",
+      "telecom": "Phone Plans & Telecom",
+      "transit": "Transit, Rideshare & Parking",
+      "drugstores": "Drugstores & Pharmacies",
+      "rent": "Rent & Mortgage Payments",
+      "other": "Everything Else"
+    },
+    "sources": [
+      "https://creditcards.chase.com/rewards-credit-cards/sapphire/reserve",
+      "https://creditcards.chase.com/rewards-credit-cards/sapphire/preferred",
+      "https://www.americanexpress.com/us/credit-cards/card/platinum/",
+      "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
+      "https://www.navyfederal.org/loans-cards/credit-cards/flagship-visa-signature.html",
+      "https://www.citi.com/credit-cards/citi-strata-elite-credit-card",
+      "https://www.capitalone.com/credit-cards/venture-x/",
+      "https://www.biltrewards.com/",
+      "https://thepointsguy.com/",
+      "https://upgradedpoints.com/"
+    ]
+  },
+  "cards": [
+    {
+      "id": "chase-sapphire-reserve",
+      "name": "Chase Sapphire Reserve",
+      "issuer": "Chase",
+      "network": "Visa",
+      "annualFee": 795,
+      "pointsCurrencyId": "chase-ultimate-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": true,
+      "loungeDetails": "Chase Sapphire Lounges (unlimited guests), Priority Pass (1,300+ lounges), Air Canada Maple Leaf Lounges & Cafés",
+      "globalEntryCredit": true,
+      "globalEntryCreditAmount": 120,
+      "globalEntryCreditFrequencyYears": 4,
+      "signupBonus": {
+        "points": 125000,
+        "spendRequired": 6000,
+        "spendPeriodMonths": 3,
+        "notes": "As of March 2026. Subject to change."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 3,
+        "hotels": 3,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 3,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalFlights": 5,
+        "portalHotels": 10,
+        "portalNotes": "10x on hotels and car rentals, 5x on flights via Chase Travel portal"
+      },
+      "credits": [
+        {
+          "id": "travel-credit",
+          "name": "Annual Travel Credit",
+          "annualValue": 300,
+          "description": "Automatic statement credit on travel purchases (airlines, hotels, car rentals, etc.)",
+          "defaultUtilization": 1.0,
+          "category": "travel"
+        },
+        {
+          "id": "the-edit-hotel-credit",
+          "name": "The Edit Hotel Credit",
+          "annualValue": 500,
+          "description": "Up to $500/year in credits on prepaid bookings at The Edit by Chase Travel luxury hotels (max $250 per transaction, 2-night min). Starts 2026.",
+          "defaultUtilization": 0.5,
+          "category": "travel"
+        },
+        {
+          "id": "ihg-hotel-credit",
+          "name": "IHG Hotel Credit",
+          "annualValue": 250,
+          "description": "Up to $250/year in credits on prepaid Chase Travel bookings at IHG, Montage, Pendry, Omni, Virgin Hotels, Minor Hotels, Pan Pacific. 2-night minimum.",
+          "defaultUtilization": 0.5,
+          "category": "travel"
+        },
+        {
+          "id": "dining-credit",
+          "name": "Dining Credit (Biannual)",
+          "annualValue": 600,
+          "description": "$300 every 6 months ($600/year) on qualifying dining purchases through Chase Sapphire Reserve Exclusive Tables. Starts 2026.",
+          "defaultUtilization": 0.7,
+          "category": "dining"
+        },
+        {
+          "id": "stubhub-credit",
+          "name": "StubHub Entertainment Credit (Biannual)",
+          "annualValue": 600,
+          "description": "$300 every 6 months ($600/year) on concerts, sporting events, theater via StubHub. Starts 2026.",
+          "defaultUtilization": 0.5,
+          "category": "entertainment"
+        },
+        {
+          "id": "membership-credit",
+          "name": "Monthly Membership Credit",
+          "annualValue": 120,
+          "description": "$10/month in statement credits on eligible memberships.",
+          "defaultUtilization": 0.8,
+          "category": "subscriptions"
+        },
+        {
+          "id": "apple-services",
+          "name": "Apple TV+ & Apple Music",
+          "annualValue": 264,
+          "description": "Complimentary Apple TV+ (~$10.99/mo) and Apple Music (~$11/mo). Combined value ~$264/year.",
+          "defaultUtilization": 0.5,
+          "category": "subscriptions"
+        }
+      ],
+      "perks": [
+        "Priority Pass Lounge (1,300+ lounges)",
+        "Chase Sapphire Lounge Access",
+        "Air Canada Maple Leaf Lounge Access",
+        "No Foreign Transaction Fees",
+        "Global Entry / TSA PreCheck Credit ($120 every 4 yrs)",
+        "IHG Platinum Elite Status",
+        "Reserve Travel Designer (up to $300/trip value)",
+        "Trip Cancellation & Interruption Insurance",
+        "Primary Auto Rental Collision Damage Waiver",
+        "Trip Delay Reimbursement",
+        "Lost Luggage & Baggage Delay Insurance",
+        "Emergency Evacuation & Medical Coverage",
+        "Roadside Assistance"
+      ]
+    },
+    {
+      "id": "chase-sapphire-preferred",
+      "name": "Chase Sapphire Preferred",
+      "issuer": "Chase",
+      "network": "Visa",
+      "annualFee": 95,
+      "pointsCurrencyId": "chase-ultimate-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 60000,
+        "spendRequired": 4000,
+        "spendPeriodMonths": 3,
+        "notes": "Standard offer. Higher targeted offers may be available."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 2,
+        "hotels": 2,
+        "gas": 1,
+        "streaming": 3,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalFlights": 5,
+        "portalHotels": 5,
+        "portalNotes": "5x on travel (excluding hotel credit) via Chase Travel portal"
+      },
+      "credits": [
+        {
+          "id": "hotel-credit",
+          "name": "Annual Hotel Credit",
+          "annualValue": 50,
+          "description": "$50 annual credit on hotel stays booked through Chase Travel portal.",
+          "defaultUtilization": 0.9,
+          "category": "travel"
+        },
+        {
+          "id": "doordash-dashpass",
+          "name": "DoorDash DashPass",
+          "annualValue": 120,
+          "description": "Complimentary DoorDash DashPass subscription (normally ~$9.99/month).",
+          "defaultUtilization": 0.5,
+          "category": "dining"
+        }
+      ],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Trip Cancellation & Interruption Insurance",
+        "Primary Auto Rental Collision Damage Waiver",
+        "Trip Delay Reimbursement",
+        "Baggage Delay Insurance",
+        "Purchase Protection",
+        "Extended Warranty Protection"
+      ]
+    },
+    {
+      "id": "chase-freedom-unlimited",
+      "name": "Chase Freedom Unlimited",
+      "issuer": "Chase",
+      "network": "Visa",
+      "annualFee": 0,
+      "pointsCurrencyId": "chase-ultimate-rewards",
+      "foreignTransactionFee": true,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 20000,
+        "spendRequired": 500,
+        "spendPeriodMonths": 3,
+        "notes": "Equivalent to $200 cash back. Offers vary."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 1.5,
+        "hotels": 1.5,
+        "gas": 1.5,
+        "streaming": 1.5,
+        "telecom": 1.5,
+        "transit": 1.5,
+        "drugstores": 3,
+        "rent": 1.5,
+        "other": 1.5,
+        "portalFlights": 5,
+        "portalHotels": 5,
+        "portalNotes": "5x on travel via Chase Travel portal"
+      },
+      "credits": [],
+      "perks": [
+        "Purchase Protection",
+        "Extended Warranty Protection",
+        "Trip Cancellation & Interruption Insurance",
+        "Note: Foreign transaction fees apply (3%)"
+      ]
+    },
+    {
+      "id": "wells-fargo-active-cash",
+      "name": "Wells Fargo Active Cash",
+      "issuer": "Wells Fargo",
+      "network": "Visa",
+      "annualFee": 0,
+      "pointsCurrencyId": "wells-fargo-rewards",
+      "isCashBackCard": true,
+      "cashBackRate": 2.0,
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 20000,
+        "spendRequired": 500,
+        "spendPeriodMonths": 3,
+        "notes": "Equivalent to $200 cash back after $500 spend in first 3 months."
+      },
+      "earningRates": {
+        "dining": 2,
+        "groceries": 2,
+        "flights": 2,
+        "hotels": 2,
+        "gas": 2,
+        "streaming": 2,
+        "telecom": 2,
+        "transit": 2,
+        "drugstores": 2,
+        "rent": 2,
+        "other": 2
+      },
+      "credits": [],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Cell Phone Protection (up to $600, $25 deductible)",
+        "Zero Liability Protection",
+        "Visa Signature Benefits"
+      ]
+    },
+    {
+      "id": "wells-fargo-autograph",
+      "name": "Wells Fargo Autograph Visa",
+      "issuer": "Wells Fargo",
+      "network": "Visa",
+      "annualFee": 0,
+      "pointsCurrencyId": "wells-fargo-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 20000,
+        "spendRequired": 1000,
+        "spendPeriodMonths": 3,
+        "notes": "Equivalent to $200 in rewards after $1,000 spend in first 3 months."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 3,
+        "hotels": 3,
+        "gas": 3,
+        "streaming": 3,
+        "telecom": 3,
+        "transit": 3,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1
+      },
+      "credits": [],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Cell Phone Protection (up to $600, $25 deductible)",
+        "Auto Rental Collision Damage Waiver",
+        "Travel & Emergency Assistance",
+        "Roadside Dispatch",
+        "Visa Signature Benefits"
+      ]
+    },
+    {
+      "id": "amex-platinum",
+      "name": "American Express Platinum",
+      "issuer": "American Express",
+      "network": "Amex",
+      "annualFee": 895,
+      "pointsCurrencyId": "amex-membership-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": true,
+      "loungeDetails": "Centurion Lounges (unlimited), Delta Sky Club (10 visits/year on eligible Delta flights), Priority Pass Select (1,300+ lounges), Plaza Premium, Escape Lounges, and more via Global Lounge Collection",
+      "globalEntryCredit": true,
+      "globalEntryCreditAmount": 120,
+      "globalEntryCreditFrequencyYears": 4,
+      "signupBonus": {
+        "points": 175000,
+        "spendRequired": 8000,
+        "spendPeriodMonths": 6,
+        "notes": "High-end offer as of March 2026. Standard offers may be lower. Subject to one-per-lifetime restrictions and pop-up denial."
+      },
+      "earningRates": {
+        "dining": 1,
+        "groceries": 1,
+        "flights": 5,
+        "hotels": 5,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalFlights": 5,
+        "portalHotels": 5,
+        "portalNotes": "5x on flights booked direct or via Amex Travel (up to $500k/yr), 5x on prepaid hotels via Amex Travel"
+      },
+      "credits": [
+        {
+          "id": "fhr-hotel-credit",
+          "name": "Fine Hotels + Resorts Credit",
+          "annualValue": 600,
+          "description": "$300 semi-annually ($600/year) in statement credits on prepaid Fine Hotels + Resorts bookings via Amex Travel.",
+          "defaultUtilization": 0.6,
+          "category": "travel"
+        },
+        {
+          "id": "resy-dining-credit",
+          "name": "Resy Dining Credit",
+          "annualValue": 400,
+          "description": "$100/quarter ($400/year) in statement credits at Resy-partnered restaurants.",
+          "defaultUtilization": 0.7,
+          "category": "dining"
+        },
+        {
+          "id": "lululemon-credit",
+          "name": "Lululemon Credit",
+          "annualValue": 300,
+          "description": "$75/quarter ($300/year) in statement credits at Lululemon.",
+          "defaultUtilization": 0.4,
+          "category": "lifestyle"
+        },
+        {
+          "id": "oura-credit",
+          "name": "Oura Ring Credit",
+          "annualValue": 200,
+          "description": "Up to $200/year back on Oura Ring membership or hardware.",
+          "defaultUtilization": 0.3,
+          "category": "lifestyle"
+        },
+        {
+          "id": "uber-cash",
+          "name": "Uber Cash",
+          "annualValue": 200,
+          "description": "$15/month Uber Cash + $20 bonus in December = $200/year. Must add Platinum to Uber account. Usable on Uber rides or Uber Eats.",
+          "defaultUtilization": 0.9,
+          "category": "transit"
+        },
+        {
+          "id": "uber-one-credit",
+          "name": "Uber One Membership Credit",
+          "annualValue": 120,
+          "description": "Up to $120/year back when using Platinum to pay for Uber One auto-renewing membership.",
+          "defaultUtilization": 0.7,
+          "category": "subscriptions"
+        },
+        {
+          "id": "digital-entertainment",
+          "name": "Digital Entertainment Credit",
+          "annualValue": 300,
+          "description": "$25/month ($300/year) on Disney+, ESPN+, Hulu, NYT, Paramount+, Peacock, WSJ, YouTube Premium, YouTube TV.",
+          "defaultUtilization": 0.8,
+          "category": "subscriptions"
+        },
+        {
+          "id": "clear-credit",
+          "name": "CLEAR Plus Credit",
+          "annualValue": 209,
+          "description": "Up to $209/year in statement credits for CLEAR Plus membership when paid with Platinum.",
+          "defaultUtilization": 0.6,
+          "category": "travel"
+        },
+        {
+          "id": "airline-fee-credit",
+          "name": "Airline Fee Credit",
+          "annualValue": 200,
+          "description": "Up to $200/year in statement credits on incidental fees (checked bags, seat upgrades, in-flight purchases) with one selected airline.",
+          "defaultUtilization": 0.7,
+          "category": "travel"
+        }
+      ],
+      "perks": [
+        "Centurion Lounge Access (unlimited)",
+        "Delta Sky Club Access (10 visits/year)",
+        "Priority Pass Select (1,300+ lounges)",
+        "Global Lounge Collection (1,550+ lounges total)",
+        "No Foreign Transaction Fees",
+        "Global Entry / TSA PreCheck Credit ($120 every 4 yrs)",
+        "CLEAR Plus Credit ($209/yr)",
+        "Hilton Honors Gold Status",
+        "Marriott Bonvoy Gold Status",
+        "Leading Hotels of the World Sterling Status",
+        "Fine Hotels + Resorts (complimentary breakfast, $100 credit, room upgrade)",
+        "International Airline Program (discounted premium airfare)",
+        "Trip Cancellation & Interruption Insurance",
+        "Premium Global Assist Hotline",
+        "Car Rental Loss & Damage Insurance",
+        "Extended Warranty & Purchase Protection"
+      ]
+    },
+    {
+      "id": "amex-gold",
+      "name": "American Express Gold",
+      "issuer": "American Express",
+      "network": "Amex",
+      "annualFee": 325,
+      "pointsCurrencyId": "amex-membership-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 60000,
+        "spendRequired": 6000,
+        "spendPeriodMonths": 6,
+        "notes": "Standard offer. Higher targeted or public offers may be available."
+      },
+      "earningRates": {
+        "dining": 4,
+        "groceries": 4,
+        "flights": 3,
+        "hotels": 1,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalFlights": 3,
+        "portalHotels": 2,
+        "portalNotes": "3x on flights booked direct or via Amex Travel, 2x on prepaid hotels via Amex Travel. Dining cap: $50,000/yr; Grocery cap: $25,000/yr."
+      },
+      "credits": [
+        {
+          "id": "dining-credit",
+          "name": "Monthly Dining Credit",
+          "annualValue": 120,
+          "description": "$10/month ($120/year) at select dining partners including Grubhub, Goldbelly, and other restaurants.",
+          "defaultUtilization": 0.8,
+          "category": "dining"
+        },
+        {
+          "id": "dunkin-credit",
+          "name": "Dunkin' Monthly Credit",
+          "annualValue": 84,
+          "description": "$7/month ($84/year) at U.S. Dunkin' locations.",
+          "defaultUtilization": 0.5,
+          "category": "dining"
+        }
+      ],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Dining at World-Class Restaurants (Resy access)",
+        "Trip Delay Insurance",
+        "Baggage Insurance Plan",
+        "Car Rental Loss & Damage Insurance",
+        "Purchase Protection",
+        "Extended Warranty"
+      ]
+    },
+    {
+      "id": "navy-federal-flagship",
+      "name": "Navy Federal Flagship Rewards",
+      "issuer": "Navy Federal Credit Union",
+      "network": "Visa",
+      "annualFee": 49,
+      "pointsCurrencyId": "navy-federal-points",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": true,
+      "globalEntryCreditAmount": 120,
+      "globalEntryCreditFrequencyYears": 4,
+      "membershipRequired": "U.S. military, veterans, DoD employees/contractors, and their family members",
+      "signupBonus": {
+        "points": 35000,
+        "spendRequired": 3500,
+        "spendPeriodMonths": 3,
+        "bonusExtras": "Free Amazon Prime membership (1 year, ~$139 value)",
+        "notes": "Current offer valid Jan 2 – Jun 30, 2026. 1 point = 1¢, so 35,000 pts = $350."
+      },
+      "earningRates": {
+        "dining": 2,
+        "groceries": 2,
+        "flights": 3,
+        "hotels": 3,
+        "gas": 2,
+        "streaming": 2,
+        "telecom": 2,
+        "transit": 3,
+        "drugstores": 2,
+        "rent": 2,
+        "other": 2,
+        "portalNotes": "3x on all travel (hotels, airfare, rideshare, parking, car rentals, timeshares, campgrounds, RV parks, tolls, museums, golf courses, amusement parks)"
+      },
+      "credits": [
+        {
+          "id": "amazon-prime",
+          "name": "Amazon Prime Membership (Sign-up only)",
+          "annualValue": 139,
+          "description": "Free Amazon Prime annual membership with sign-up bonus. One-time benefit.",
+          "defaultUtilization": 0.9,
+          "category": "subscriptions",
+          "oneTime": true
+        }
+      ],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Global Entry / TSA PreCheck Credit ($120 every 4 yrs)",
+        "24-Hour Travel & Emergency Assistance",
+        "Auto Rental Collision Damage Waiver",
+        "Lost Luggage Insurance (up to $3,000)",
+        "Travel Accident Insurance",
+        "Towing & Roadside Assistance Referral",
+        "Luxury Hotel & Resort Portfolio Discounts",
+        "Note: Membership required (military/DoD/family)"
+      ]
+    },
+    {
+      "id": "citi-strata-premier",
+      "name": "Citi Strata Premier",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "annualFee": 95,
+      "pointsCurrencyId": "citi-thankyou",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 60000,
+        "spendRequired": 4000,
+        "spendPeriodMonths": 3,
+        "notes": "Standard offer as of March 2026."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 3,
+        "flights": 3,
+        "hotels": 3,
+        "gas": 3,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalFlights": 10,
+        "portalHotels": 10,
+        "portalNotes": "10x on hotels, car rentals, and attractions booked via Citi Travel"
+      },
+      "credits": [
+        {
+          "id": "hotel-credit",
+          "name": "Annual Hotel Discount",
+          "annualValue": 100,
+          "description": "$100 hotel discount on a single hotel stay of $500+ (excl. taxes/fees) booked via Citi Travel portal.",
+          "defaultUtilization": 0.7,
+          "category": "travel"
+        }
+      ],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Trip Delay Protection",
+        "Trip Cancellation & Interruption Insurance",
+        "Lost or Damaged Luggage Protection",
+        "Car Rental Loss & Damage Insurance",
+        "Mastercard ID Theft Protection",
+        "American AAdvantage Transfer Partner (added July 2025)"
+      ]
+    },
+    {
+      "id": "citi-strata-elite",
+      "name": "Citi Strata Elite",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "annualFee": 595,
+      "pointsCurrencyId": "citi-thankyou",
+      "foreignTransactionFee": false,
+      "loungeAccess": true,
+      "loungeDetails": "American Airlines Admirals Club access for cardholder + 4 guest passes per year",
+      "globalEntryCredit": true,
+      "globalEntryCreditAmount": 120,
+      "globalEntryCreditFrequencyYears": 4,
+      "signupBonus": {
+        "points": 100000,
+        "spendRequired": 6000,
+        "spendPeriodMonths": 3,
+        "notes": "Increased limited-time offer. Spending requirement may vary."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 3,
+        "flights": 3,
+        "hotels": 3,
+        "gas": 3,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalFlights": 6,
+        "portalHotels": 12,
+        "portalDining": 6,
+        "portalNotes": "12x on hotels/car rentals/attractions, 6x on flights via Citi Travel; 6x on dining Fri-Sat 6pm+ at restaurants"
+      },
+      "credits": [
+        {
+          "id": "hotel-credit",
+          "name": "Annual Hotel Credit",
+          "annualValue": 300,
+          "description": "Up to $300/year in hotel credits via Citi Travel portal.",
+          "defaultUtilization": 0.7,
+          "category": "travel"
+        },
+        {
+          "id": "blacklane-credit",
+          "name": "Blacklane Chauffeur Credit",
+          "annualValue": 200,
+          "description": "Up to $200/year ($100 Jan–Jun, $100 Jul–Dec) in statement credits on Blacklane chauffeur/limo service bookings.",
+          "defaultUtilization": 0.4,
+          "category": "travel"
+        }
+      ],
+      "perks": [
+        "Admirals Club Lounge Access (cardholder + 4 guest passes/yr)",
+        "No Foreign Transaction Fees",
+        "Global Entry / TSA PreCheck Credit ($120 every 4 yrs)",
+        "Blacklane Chauffeur Credit ($200/yr)",
+        "Citi Entertainment (presale tickets, exclusive events)",
+        "Trip Delay Protection",
+        "Enhanced Trip Cancellation & Interruption Protection",
+        "Lost or Damaged Luggage Protection",
+        "MasterRental Coverage",
+        "Mastercard ID Theft Protection"
+      ]
+    },
+    {
+      "id": "capital-one-venture",
+      "name": "Capital One Venture Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "annualFee": 95,
+      "pointsCurrencyId": "capital-one-miles",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": true,
+      "globalEntryCreditAmount": 100,
+      "globalEntryCreditFrequencyYears": 4,
+      "signupBonus": {
+        "points": 75000,
+        "spendRequired": 4000,
+        "spendPeriodMonths": 3,
+        "notes": "Current offer as of March 2026. Subject to change."
+      },
+      "earningRates": {
+        "dining": 2,
+        "groceries": 2,
+        "flights": 2,
+        "hotels": 2,
+        "gas": 2,
+        "streaming": 2,
+        "telecom": 2,
+        "transit": 2,
+        "drugstores": 2,
+        "rent": 2,
+        "other": 2,
+        "portalHotels": 5,
+        "portalNotes": "5x on hotels and car rentals booked via Capital One Travel"
+      },
+      "credits": [],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Global Entry / TSA PreCheck Credit ($100 every 4 yrs)",
+        "Premier Collection Hotel Benefits ($100 experience credit, daily breakfast for 2)",
+        "Hertz Five Star Status",
+        "Miles Never Expire",
+        "Travel Accident Insurance",
+        "Auto Rental Collision Damage Waiver",
+        "Extended Warranty"
+      ]
+    },
+    {
+      "id": "capital-one-venture-x",
+      "name": "Capital One Venture X Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "annualFee": 395,
+      "pointsCurrencyId": "capital-one-miles",
+      "foreignTransactionFee": false,
+      "loungeAccess": true,
+      "loungeDetails": "Capital One Lounges (unlimited) + Priority Pass (1,300+ lounges worldwide)",
+      "globalEntryCredit": true,
+      "globalEntryCreditAmount": 120,
+      "globalEntryCreditFrequencyYears": 4,
+      "signupBonus": {
+        "points": 75000,
+        "spendRequired": 4000,
+        "spendPeriodMonths": 3,
+        "notes": "Current offer as of March 2026."
+      },
+      "earningRates": {
+        "dining": 2,
+        "groceries": 2,
+        "flights": 2,
+        "hotels": 2,
+        "gas": 2,
+        "streaming": 2,
+        "telecom": 2,
+        "transit": 2,
+        "drugstores": 2,
+        "rent": 2,
+        "other": 2,
+        "portalFlights": 5,
+        "portalHotels": 10,
+        "portalNotes": "10x on hotels and car rentals, 5x on flights and vacation rentals booked via Capital One Travel; 5x on Capital One Entertainment"
+      },
+      "credits": [
+        {
+          "id": "travel-credit",
+          "name": "Annual Travel Credit",
+          "annualValue": 300,
+          "description": "$300/year credit toward Capital One Travel purchases. Applied automatically at checkout.",
+          "defaultUtilization": 1.0,
+          "category": "travel"
+        },
+        {
+          "id": "anniversary-miles",
+          "name": "Anniversary Miles Bonus",
+          "annualValue": 100,
+          "description": "10,000 bonus miles every year starting on first anniversary. Worth ~$100 toward travel (at 1¢/mile baseline).",
+          "defaultUtilization": 1.0,
+          "category": "miles"
+        }
+      ],
+      "perks": [
+        "Capital One Lounge Access (unlimited)",
+        "Priority Pass Lounge (1,300+ lounges)",
+        "No Foreign Transaction Fees",
+        "Global Entry / TSA PreCheck Credit ($120 every 4 yrs)",
+        "Premier Collection Hotel Benefits ($100 experience credit, daily breakfast for 2)",
+        "PRIOR Subscription (travel experiences, $149 value)",
+        "Hertz Presidents Circle Status",
+        "Miles Never Expire",
+        "Trip Cancellation & Interruption Insurance",
+        "Trip Delay Reimbursement",
+        "Lost Luggage Reimbursement",
+        "Auto Rental Collision Damage Waiver",
+        "Extended Warranty & Purchase Protection"
+      ]
+    },
+    {
+      "id": "bilt-blue",
+      "name": "Bilt Blue",
+      "issuer": "Bilt",
+      "network": "Mastercard",
+      "annualFee": 0,
+      "pointsCurrencyId": "bilt-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 0,
+        "cashBonus": 100,
+        "spendRequired": 0,
+        "notes": "$100 Bilt Cash upon approval. No minimum spend required."
+      },
+      "earningRates": {
+        "dining": 1,
+        "groceries": 1,
+        "flights": 1,
+        "hotels": 1,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalNotes": "1x on all purchases including rent/mortgage (no transaction fee). Option to earn 4% Bilt Cash instead of points on everyday spend."
+      },
+      "credits": [],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Earn Points on Rent (no transaction fee)",
+        "Earn Points on Mortgage Payments",
+        "Mastercard World Benefits",
+        "Points Transferable to 15+ Airline & Hotel Partners",
+        "Redeem for Rent, Mortgage Down Payment, Student Loans",
+        "Cell Phone Protection",
+        "Trip Cancellation Insurance",
+        "Purchase Protection"
+      ]
+    },
+    {
+      "id": "bilt-obsidian",
+      "name": "Bilt Obsidian",
+      "issuer": "Bilt",
+      "network": "Mastercard",
+      "annualFee": 95,
+      "pointsCurrencyId": "bilt-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 0,
+        "cashBonus": 200,
+        "spendRequired": 0,
+        "notes": "$200 Bilt Cash upon approval. No points sign-up bonus."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 2,
+        "hotels": 2,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 1,
+        "other": 1,
+        "portalNotes": "3x on dining OR groceries (choose one annually, groceries up to $25k/yr). 2x on travel. 1x on all else. Dining is the default 3x category."
+      },
+      "credits": [
+        {
+          "id": "hotel-credit",
+          "name": "Bilt Travel Hotel Credit",
+          "annualValue": 100,
+          "description": "Two $50 semi-annual statement credits ($100/year) for qualifying hotel bookings of 2+ nights through Bilt Travel portal.",
+          "defaultUtilization": 0.7,
+          "category": "travel"
+        }
+      ],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "Earn Points on Rent & Mortgage (no transaction fee)",
+        "Choose 3x Category: Dining or Groceries",
+        "Points Transferable to 15+ Airline & Hotel Partners",
+        "Redeem for Rent, Mortgage Down Payment, Student Loans",
+        "Mastercard World Benefits",
+        "Cell Phone Protection",
+        "Trip Cancellation Insurance",
+        "Auto Rental Collision Damage Waiver",
+        "Purchase Protection"
+      ]
+    },
+    {
+      "id": "bilt-palladium",
+      "name": "Bilt Palladium",
+      "issuer": "Bilt",
+      "network": "Mastercard",
+      "annualFee": 495,
+      "pointsCurrencyId": "bilt-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": true,
+      "loungeDetails": "Priority Pass membership (1,300+ airport lounges worldwide)",
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 50000,
+        "cashBonus": 300,
+        "spendRequired": 4000,
+        "spendPeriodMonths": 3,
+        "notes": "50,000 Bilt Points + Bilt Gold Status + $300 Bilt Cash after $4,000 everyday spend in first 3 months."
+      },
+      "earningRates": {
+        "dining": 2,
+        "groceries": 2,
+        "flights": 2,
+        "hotels": 2,
+        "gas": 2,
+        "streaming": 2,
+        "telecom": 2,
+        "transit": 2,
+        "drugstores": 2,
+        "rent": 2,
+        "other": 2,
+        "portalNotes": "2x on all non-housing everyday purchases. Earn on rent/mortgage payments with no transaction fee."
+      },
+      "credits": [
+        {
+          "id": "hotel-credit",
+          "name": "Bilt Travel Hotel Credit",
+          "annualValue": 400,
+          "description": "Two $200 semi-annual statement credits ($400/year) on qualifying hotel bookings via Bilt Travel portal.",
+          "defaultUtilization": 0.7,
+          "category": "travel"
+        },
+        {
+          "id": "bilt-cash-credit",
+          "name": "Annual Bilt Cash Credit",
+          "annualValue": 200,
+          "description": "$200 Bilt Cash awarded annually. Bilt Cash can be used toward rent, dining, and other expenses.",
+          "defaultUtilization": 1.0,
+          "category": "cash"
+        }
+      ],
+      "perks": [
+        "Priority Pass Lounge (1,300+ lounges)",
+        "No Foreign Transaction Fees",
+        "Earn Points on Rent & Mortgage (no transaction fee)",
+        "Points Transferable to 15+ Airline & Hotel Partners",
+        "Redeem for Rent, Mortgage Down Payment, Student Loans",
+        "Bilt Gold Status",
+        "Cell Phone Insurance",
+        "Secondary Rental Car Insurance",
+        "Travel Protections",
+        "Mastercard World Legend Benefits",
+        "Purchase Protection"
+      ]
+    }
+  ]
+}

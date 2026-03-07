@@ -1,0 +1,49 @@
+# GitHub Actions workflow — deploys the site to GitHub Pages
+# on every push to the main branch.
+#
+# Setup:
+#   1. Push this repo to GitHub.
+#   2. In your repo settings → Pages, set Source to "GitHub Actions".
+#   3. That's it! Your site will be live at https://<username>.github.io/<repo>/
+#
+# To use a custom domain: add a CNAME file at the repo root with your domain name.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # allow manual trigger from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent duplicate concurrent deploys; cancel stale in-progress runs.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository root — all HTML, CSS, JS, and data files.
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

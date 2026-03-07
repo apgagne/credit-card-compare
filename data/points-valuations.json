@@ -1,0 +1,170 @@
+{
+  "_meta": {
+    "description": "Credit card points valuations in cents per point (cpp). Two values per currency: 'cashback' (redemption via statement credit or cash) and 'transfer' (best value via transfer partners). Sources: The Points Guy March 2026, Upgraded Points March 2026, NerdWallet March 2026.",
+    "lastUpdated": "2026-03-07",
+    "sources": [
+      "https://thepointsguy.com/loyalty-programs/monthly-valuations/",
+      "https://upgradedpoints.com/travel/points-and-miles-valuations/",
+      "https://www.nerdwallet.com/travel/learn/airline-miles-and-hotel-points-valuations"
+    ]
+  },
+  "currencies": [
+    {
+      "id": "chase-ultimate-rewards",
+      "name": "Chase Ultimate Rewards",
+      "shortName": "UR Points",
+      "issuer": "Chase",
+      "cashbackCpp": 1.0,
+      "transferCpp": 2.05,
+      "notes": "Transfer value per TPG March 2026. Cash value = 1¢ baseline; Sapphire Reserve portal = 1.5¢+ (Points Boost up to 1.75¢), Sapphire Preferred portal = 1.25¢. Transfer partners include Hyatt, United, Southwest, British Airways, Air France/KLM, Singapore, Marriott.",
+      "transferPartners": [
+        "World of Hyatt",
+        "United MileagePlus",
+        "Southwest Rapid Rewards",
+        "British Airways Avios",
+        "Air France/KLM Flying Blue",
+        "Singapore KrisFlyer",
+        "Virgin Atlantic Flying Club",
+        "Marriott Bonvoy",
+        "Iberia Plus",
+        "IHG One Rewards",
+        "Aer Lingus AerClub",
+        "Emirates Skywards"
+      ]
+    },
+    {
+      "id": "amex-membership-rewards",
+      "name": "American Express Membership Rewards",
+      "shortName": "MR Points",
+      "issuer": "American Express",
+      "cashbackCpp": 0.6,
+      "transferCpp": 2.0,
+      "notes": "Transfer value per TPG March 2026. Cash/statement credit value is only 0.6¢ — a poor redemption. Best value via airline transfers (ANA, Air Canada, Air France/KLM, Delta, etc.). Transfer partners include 20+ airlines and hotels.",
+      "transferPartners": [
+        "Air Canada Aeroplan",
+        "Air France/KLM Flying Blue",
+        "ANA Mileage Club",
+        "British Airways Avios",
+        "Cathay Pacific Asia Miles",
+        "Delta SkyMiles",
+        "Emirates Skywards",
+        "Etihad Guest",
+        "Hawaiian Airlines HawaiianMiles",
+        "Iberia Plus",
+        "JetBlue TrueBlue",
+        "Qantas Frequent Flyer",
+        "Singapore KrisFlyer",
+        "Virgin Atlantic Flying Club",
+        "Hilton Honors",
+        "Marriott Bonvoy",
+        "Choice Privileges"
+      ]
+    },
+    {
+      "id": "citi-thankyou",
+      "name": "Citi ThankYou Rewards",
+      "shortName": "ThankYou Points",
+      "issuer": "Citi",
+      "cashbackCpp": 1.0,
+      "transferCpp": 1.9,
+      "notes": "Transfer value per TPG March 2026. Citi added American AAdvantage as a transfer partner in July 2025 — a significant addition. Most transfers happen instantly.",
+      "transferPartners": [
+        "American AAdvantage",
+        "Air France/KLM Flying Blue",
+        "Avianca LifeMiles",
+        "Cathay Pacific Asia Miles",
+        "Emirates Skywards",
+        "Etihad Guest",
+        "EVA Air Infinity MileageLands",
+        "JetBlue TrueBlue",
+        "Qantas Frequent Flyer",
+        "Singapore KrisFlyer",
+        "Thai Royal Orchid Plus",
+        "Turkish Airlines Miles&Smiles",
+        "Virgin Atlantic Flying Club",
+        "Choice Privileges",
+        "Wyndham Rewards"
+      ]
+    },
+    {
+      "id": "capital-one-miles",
+      "name": "Capital One Miles",
+      "shortName": "C1 Miles",
+      "issuer": "Capital One",
+      "cashbackCpp": 1.0,
+      "transferCpp": 1.85,
+      "notes": "Transfer value per TPG March 2026. Can also be redeemed at 1¢ toward travel purchases or statement credits. Transfer partners include Turkish Airlines (great for US-Europe business class), Air France/KLM, Avianca, and more.",
+      "transferPartners": [
+        "Air Canada Aeroplan",
+        "Air France/KLM Flying Blue",
+        "Avianca LifeMiles",
+        "British Airways Avios",
+        "Cathay Pacific Asia Miles",
+        "Emirates Skywards",
+        "Etihad Guest",
+        "EVA Air Infinity MileageLands",
+        "Finnair Plus",
+        "Qantas Frequent Flyer",
+        "Singapore KrisFlyer",
+        "TAP Air Portugal Miles&Go",
+        "Turkish Airlines Miles&Smiles",
+        "Wyndham Rewards",
+        "Choice Privileges",
+        "Accor Live Limitless"
+      ]
+    },
+    {
+      "id": "bilt-rewards",
+      "name": "Bilt Rewards Points",
+      "shortName": "Bilt Points",
+      "issuer": "Bilt",
+      "cashbackCpp": 1.25,
+      "transferCpp": 2.2,
+      "notes": "#1 ranked currency per TPG March 2026 at 2.2¢ transfer value. Unique: points can be redeemed toward rent, mortgage down payments, and student loans. Bilt Cash alternative earns 4% back on everyday spending.",
+      "transferPartners": [
+        "Air Canada Aeroplan",
+        "Air France/KLM Flying Blue",
+        "Alaska Airlines Mileage Plan",
+        "American AAdvantage",
+        "British Airways Avios",
+        "Cathay Pacific Asia Miles",
+        "Emirates Skywards",
+        "Iberia Plus",
+        "Turkish Airlines Miles&Smiles",
+        "United MileagePlus",
+        "Virgin Atlantic Flying Club",
+        "World of Hyatt",
+        "Marriott Bonvoy",
+        "IHG One Rewards",
+        "Hilton Honors"
+      ]
+    },
+    {
+      "id": "navy-federal-points",
+      "name": "Navy Federal Rewards Points",
+      "shortName": "NFCU Points",
+      "issuer": "Navy Federal Credit Union",
+      "cashbackCpp": 1.0,
+      "transferCpp": 1.0,
+      "notes": "Points are worth a flat 1¢ per point regardless of redemption method. No airline or hotel transfer partners — purely cash-equivalent value. 1,000 points = $10.",
+      "transferPartners": []
+    },
+    {
+      "id": "wells-fargo-rewards",
+      "name": "Wells Fargo Rewards",
+      "shortName": "WF Rewards",
+      "issuer": "Wells Fargo",
+      "cashbackCpp": 1.0,
+      "transferCpp": 1.5,
+      "notes": "Active Cash earns straight 2% cash back (not points). Autograph earns transferable points; transfer to airline/hotel partners via Wells Fargo. Transfer value estimated at 1.5¢ based on partner availability. Active Cash is purely cash back at 1¢/dollar of reward.",
+      "transferPartners": [
+        "Air France/KLM Flying Blue",
+        "Avianca LifeMiles",
+        "British Airways Avios",
+        "Iberia Plus",
+        "Aer Lingus AerClub",
+        "Choice Privileges"
+      ]
+    }
+  ]
+}
