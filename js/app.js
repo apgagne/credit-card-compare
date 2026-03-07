@@ -10,17 +10,17 @@ const state = {
   cards: [],
   currencies: [],
   spending: {           // annual spend by category (dollars)
-    dining:     3600,   // $300/mo
-    groceries:  4800,   // $400/mo
-    flights:    3000,
-    hotels:     2000,
-    gas:        1800,   // $150/mo
-    streaming:   600,   // $50/mo
-    telecom:    1200,   // $100/mo
-    transit:    1200,
-    drugstores:  600,
-    rent:       18000,  // $1,500/mo
-    other:      6000,
+    dining:     0,
+    groceries:  0,
+    flights:    0,
+    hotels:     0,
+    gas:        0,
+    streaming:  0,
+    telecom:    0,
+    transit:    0,
+    drugstores: 0,
+    rent:       0,
+    other:      0,
   },
   pointsMode: 'cashback',   // 'cashback' | 'transfer'
   sortKey: 'year1',
