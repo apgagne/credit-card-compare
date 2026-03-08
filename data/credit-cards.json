@@ -492,6 +492,22 @@
           "description": "$7/month ($84/year) at U.S. Dunkin' locations.",
           "defaultUtilization": 0.5,
           "category": "dining"
+        },
+        {
+          "id": "uber-cash",
+          "name": "Uber Cash",
+          "annualValue": 120,
+          "description": "$10/month ($120/year) Uber Cash for Uber rides or Uber Eats. Must add Gold Card to Uber account.",
+          "defaultUtilization": 0.85,
+          "category": "transit"
+        },
+        {
+          "id": "resy-credit",
+          "name": "Resy Dining Credit",
+          "annualValue": 100,
+          "description": "$50 semi-annually ($100/year) in statement credits at Resy-partnered restaurants when booking through Resy.",
+          "defaultUtilization": 0.7,
+          "category": "dining"
         }
       ],
       "perks": [
@@ -665,6 +681,14 @@
           "description": "Up to $200/year ($100 Jan–Jun, $100 Jul–Dec) in statement credits on Blacklane chauffeur/limo service bookings.",
           "defaultUtilization": 0.4,
           "category": "travel"
+        },
+        {
+          "id": "splurge-credit",
+          "name": "Splurge Credit",
+          "annualValue": 200,
+          "description": "$200/year credit for purchases at up to 2 of the following eligible categories: American Airlines, Best Buy, Live Nation, 1stDibs, or Future Personal Training.",
+          "defaultUtilization": 0.6,
+          "category": "lifestyle"
         }
       ],
       "perks": [
@@ -951,6 +975,59 @@
         "Secondary Rental Car Insurance",
         "Travel Protections",
         "Mastercard World Legend Benefits",
+        "Purchase Protection"
+      ]
+    },
+    {
+      "id": "atmos-rewards-summit",
+      "name": "Atmos Rewards Summit",
+      "issuer": "Atmos",
+      "network": "Visa",
+      "annualFee": 395,
+      "pointsCurrencyId": "atmos-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 100000,
+        "spendRequired": 6000,
+        "spendPeriodMonths": 3,
+        "notes": "100,000 Atmos Points after $6,000 spend in first 90 days. At 1.5¢ transfer value = $1,500."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 3,
+        "hotels": 1,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 0,
+        "other": 1,
+        "portalNotes": "3x on dining worldwide, 3x on Alaska Airlines and Hawaiian Airlines flights booked direct, 3x on all purchases made abroad (foreign transactions). 1x on all other purchases."
+      },
+      "credits": [
+        {
+          "id": "companion-award",
+          "name": "Annual Companion Award",
+          "annualValue": 250,
+          "description": "Annual 25,000-point companion award certificate after paying annual fee. Redeem for a companion ticket on Alaska or Hawaiian Airlines. Estimated value ~$250.",
+          "defaultUtilization": 0.7,
+          "category": "travel"
+        }
+      ],
+      "perks": [
+        "No Foreign Transaction Fees",
+        "3x Points on All Foreign Purchases",
+        "Annual Companion Award (25,000 points, ~$250 value)",
+        "8 Alaska Airlines Lounge Guest Passes",
+        "8 Gogo In-Flight Wi-Fi Passes",
+        "First Checked Bag Free (cardholder + companions on Alaska flights)",
+        "Priority Boarding on Alaska Airlines",
+        "Points Transferable to Oneworld Alliance Airlines & Partners",
+        "Trip Cancellation & Interruption Insurance",
         "Purchase Protection"
       ]
     }

@@ -165,6 +165,26 @@
         "Aer Lingus AerClub",
         "Choice Privileges"
       ]
+    },
+    {
+      "id": "atmos-rewards",
+      "name": "Atmos Rewards Points",
+      "shortName": "Atmos Points",
+      "issuer": "Atmos",
+      "cashbackCpp": 1.0,
+      "transferCpp": 1.5,
+      "notes": "Transfer value per TPG March 2026 at 1.5¢/point. Transfer partners focus on oneworld alliance airlines (American AAdvantage, British Airways Avios, Cathay Pacific, Iberia, Japan Airlines) plus Alaska Airlines. Cash redemption at 1¢/point.",
+      "transferPartners": [
+        "American AAdvantage",
+        "Alaska Airlines Mileage Plan",
+        "British Airways Avios",
+        "Cathay Pacific Asia Miles",
+        "Finnair Plus",
+        "Iberia Plus",
+        "Japan Airlines Mileage Bank",
+        "Malaysia Airlines Enrich",
+        "Royal Air Maroc Safar"
+      ]
     }
   ]
 }
