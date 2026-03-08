@@ -39,7 +39,7 @@ const CATEGORY_META = {
   telecom:    { label: 'Phone & Telecom',            icon: '📱',  hint: 'cell plans, internet' },
   transit:    { label: 'Transit & Rideshare',        icon: '🚗',  hint: 'Uber, Lyft, subway, parking' },
   drugstores: { label: 'Drugstores',                 icon: '💊',  hint: 'CVS, Walgreens, Rite Aid' },
-  rent:       { label: 'Rent / Mortgage',            icon: '🏠',  hint: 'monthly housing payments' },
+  rent:       { label: 'Rent / Mortgage',            icon: '🏠',  hint: 'Bilt cards only — other cards earn 0%' },
   other:      { label: 'Everything Else',            icon: '🛍️',  hint: 'all other purchases' },
 };
 
@@ -106,7 +106,9 @@ function calcSpendRewards(card) {
   const cpp = getCpp(card.pointsCurrencyId);
   let total = 0;
   Object.entries(state.spending).forEach(([cat, spend]) => {
-    const rate = card.earningRates[cat] || 1;
+    // Use ?? 0 so an explicit rate of 0 (e.g. rent on non-Bilt cards) is respected,
+    // not silently replaced by the || 1 fallback.
+    const rate = card.earningRates[cat] ?? 0;
     if (card.isCashBackCard) {
       // rate is a cash-back percentage (e.g., 2 = 2%)
       total += spend * (rate / 100);
@@ -134,7 +136,22 @@ function calcCreditsValue(card) {
 }
 
 /**
- * Year 1 = sign-up bonus value + annual rewards - annual fee
+ * One-time credits (e.g. Amazon Prime from Navy Federal sign-up bonus) only
+ * count in Year 1, not recurring years.
+ */
+function calcOneTimeCreditsValue(card) {
+  const overrides = state.creditOverrides[card.id] || {};
+  return (card.credits || []).reduce((sum, credit) => {
+    if (!credit.oneTime) return sum;
+    const utilization = overrides[credit.id] !== undefined
+      ? overrides[credit.id]
+      : credit.defaultUtilization;
+    return sum + credit.annualValue * utilization;
+  }, 0);
+}
+
+/**
+ * Year 1 = sign-up bonus value + one-time credits + annual rewards - annual fee
  */
 function calcYear1(card) {
   const cpp = getCpp(card.pointsCurrencyId);
@@ -142,8 +159,8 @@ function calcYear1(card) {
   const cashBonus = card.signupBonus?.cashBonus || 0;
   const spendRewards = calcSpendRewards(card);
   const creditsValue = calcCreditsValue(card);
-  const annualRewards = spendRewards + creditsValue;
-  return bonusValue + cashBonus + annualRewards - card.annualFee;
+  const oneTimeValue = calcOneTimeCreditsValue(card);
+  return bonusValue + cashBonus + oneTimeValue + spendRewards + creditsValue - card.annualFee;
 }
 
 /**
@@ -374,14 +391,19 @@ function buildDetailPanel(card) {
   const earnGrid = document.createElement('div');
   earnGrid.className = 'earn-rate-grid';
 
-  const maxRate = Math.max(...Object.entries(CATEGORY_META).map(([k]) => card.earningRates[k] || 1));
+  const maxRate = Math.max(...Object.entries(CATEGORY_META).map(([k]) => card.earningRates[k] ?? 0));
 
   Object.entries(CATEGORY_META).forEach(([key, meta]) => {
-    const rate = card.earningRates[key] || 1;
-    const dollarValue = card.isCashBackCard
-      ? `${rate}% back`
-      : `${rate}x = ${(rate * cpp * 100).toFixed(2)}¢/$`;
-    const isBest = rate === maxRate;
+    const rate = card.earningRates[key] ?? 0;
+    let dollarValue;
+    if (rate === 0) {
+      dollarValue = `<span style="color:var(--text-muted)">N/A</span>`;
+    } else if (card.isCashBackCard) {
+      dollarValue = `${rate}% back`;
+    } else {
+      dollarValue = `${rate}x = ${(rate * cpp * 100).toFixed(2)}¢/$`;
+    }
+    const isBest = rate > 0 && rate === maxRate;
     earnGrid.innerHTML += `
       <div class="earn-rate-item">
         <span class="earn-rate-label">${meta.icon} ${meta.label}</span>
@@ -408,6 +430,7 @@ function buildDetailPanel(card) {
     <div class="divider" style="margin:16px 0 12px"></div>
     <div class="calc-breakdown">
       <div class="line"><span>Sign-up Bonus Value</span><span>${fmt((card.signupBonus?.points || 0) * getCpp(card.pointsCurrencyId) + (card.signupBonus?.cashBonus || 0))}</span></div>
+      ${calcOneTimeCreditsValue(card) > 0 ? `<div class="line"><span>One-time Sign-up Credits</span><span>${fmt(calcOneTimeCreditsValue(card))}</span></div>` : ''}
       <div class="line"><span>Annual Spend Rewards</span><span>${fmt(calcSpendRewards(card))}</span></div>
       <div class="line"><span>Annual Credits (adjusted)</span><span>${fmt(calcCreditsValue(card))}</span></div>
       <div class="line"><span>Annual Fee</span><span style="color:var(--red)">−${fmt(card.annualFee)}</span></div>
