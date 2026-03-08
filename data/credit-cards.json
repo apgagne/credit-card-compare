@@ -38,7 +38,7 @@
       "pointsCurrencyId": "chase-ultimate-rewards",
       "foreignTransactionFee": false,
       "loungeAccess": true,
-      "loungeDetails": "Chase Sapphire Lounges (unlimited guests), Priority Pass (1,300+ lounges), Air Canada Maple Leaf Lounges & Caf\u00e9s",
+      "loungeDetails": "Chase Sapphire Lounges (unlimited guests), Priority Pass (1,300+ lounges), Air Canada Maple Leaf Lounges & Cafés",
       "globalEntryCredit": true,
       "globalEntryCreditAmount": 120,
       "globalEntryCreditFrequencyYears": 4,
@@ -268,13 +268,13 @@
         "other": 1,
         "portalFlights": 5,
         "portalHotels": 5,
-        "portalNotes": "5x on travel via Chase Travel portal; 5x on rotating quarterly categories (up to $1,500 spend/quarter \u2014 common categories include grocery stores, Amazon, gas stations, PayPal, etc.). Rates shown above reflect fixed base rates only."
+        "portalNotes": "5x on travel via Chase Travel portal; 5x on rotating quarterly categories (up to $1,500 spend/quarter — common categories include grocery stores, Amazon, gas stations, PayPal, etc.). Rates shown above reflect fixed base rates only."
       },
       "credits": [],
       "perks": [
         "5x on Rotating Quarterly Categories (up to $1,500/quarter)",
         "Points Pool with CSR/CSP for Higher Transfer/Portal Value",
-        "Cell Phone Protection (up to $800, $25 deductible)",
+        "Cell Phone Protection (up to $800, $50 deductible)",
         "Purchase Protection",
         "Extended Warranty Protection",
         "Trip Cancellation & Interruption Insurance",
@@ -492,7 +492,7 @@
       "name": "American Express Gold",
       "issuer": "American Express",
       "network": "Amex",
-      "annualFee": 250,
+      "annualFee": 325,
       "pointsCurrencyId": "amex-membership-rewards",
       "foreignTransactionFee": false,
       "loungeAccess": false,
@@ -548,7 +548,7 @@
           "id": "resy-credit",
           "name": "Resy Dining Credit",
           "annualValue": 100,
-          "description": "Up to $100/year ($50 Jan\u2013Jun, $50 Jul\u2013Dec) in statement credits on eligible dining purchases at Resy restaurants.",
+          "description": "Up to $100/year ($50 Jan–Jun, $50 Jul–Dec) in statement credits on eligible dining purchases at Resy restaurants.",
           "defaultUtilization": 0.7,
           "category": "dining"
         }
@@ -597,9 +597,9 @@
       "credits": [
         {
           "id": "disney-bundle-credit",
-          "name": "Disney Bundle Streaming Credit",
-          "annualValue": 84,
-          "description": "$7/month ($84/year) back as statement credit on eligible Disney Bundle subscription (Disney+, Hulu, ESPN+). Must enroll.",
+          "name": "Disney Streaming Credit",
+          "annualValue": 120,
+          "description": "$10/month ($120/year) back as statement credit on eligible Disney+, Hulu, or ESPN+ subscriptions. Updated August 2025; no minimum spend required. Must enroll.",
           "defaultUtilization": 0.9,
           "category": "streaming"
         }
@@ -608,7 +608,7 @@
         "6% Cash Back at U.S. Supermarkets (up to $6,000/yr, then 1%)",
         "6% on Select U.S. Streaming Services",
         "3% at U.S. Gas Stations and Transit",
-        "Disney Bundle Monthly Credit ($7/month)",
+        "Disney Streaming Credit ($10/month)",
         "Return Protection",
         "Purchase Protection",
         "Extended Warranty",
@@ -635,7 +635,7 @@
         "spendRequired": 3500,
         "spendPeriodMonths": 3,
         "bonusExtras": "Free Amazon Prime membership (1 year, ~$139 value)",
-        "notes": "Current offer valid Jan 2 \u2013 Jun 30, 2026. 1 point = 1\u00a2, so 35,000 pts = $350."
+        "notes": "Current offer valid Jan 2 – Jun 30, 2026. 1 point = 1¢, so 35,000 pts = $350."
       },
       "earningRates": {
         "dining": 2,
@@ -747,20 +747,20 @@
       },
       "earningRates": {
         "dining": 3,
-        "groceries": 3,
-        "flights": 3,
-        "hotels": 3,
-        "gas": 3,
-        "streaming": 1,
-        "telecom": 1,
-        "transit": 1,
-        "drugstores": 1,
+        "groceries": 1.5,
+        "flights": 1.5,
+        "hotels": 1.5,
+        "gas": 1.5,
+        "streaming": 1.5,
+        "telecom": 1.5,
+        "transit": 1.5,
+        "drugstores": 1.5,
         "rent": 0,
-        "other": 1,
+        "other": 1.5,
         "portalFlights": 6,
         "portalHotels": 12,
         "portalDining": 6,
-        "portalNotes": "12x on hotels/car rentals/attractions, 6x on flights via Citi Travel; 6x on dining Fri-Sat 6pm+ at restaurants"
+        "portalNotes": "12x on hotels/car rentals/attractions, 6x on flights via Citi Travel; 6x on dining Fri-Sat 6pm+ at restaurants (Citi Nights); 3x on dining all other times. All other purchases earn 1.5x (base rate)."
       },
       "credits": [
         {
@@ -775,7 +775,7 @@
           "id": "blacklane-credit",
           "name": "Blacklane Chauffeur Credit",
           "annualValue": 200,
-          "description": "Up to $200/year ($100 Jan\u2013Jun, $100 Jul\u2013Dec) in statement credits on Blacklane chauffeur/limo service bookings.",
+          "description": "Up to $200/year ($100 Jan–Jun, $100 Jul–Dec) in statement credits on Blacklane chauffeur/limo service bookings.",
           "defaultUtilization": 0.4,
           "category": "travel"
         },
@@ -783,7 +783,7 @@
           "id": "splurge-credit",
           "name": "Splurge Credit",
           "annualValue": 200,
-          "description": "Up to $200/year ($100 per category, choose 2 of: American Airlines flights, Best Buy, Live Nation). Statement credit applied to eligible purchases.",
+          "description": "Up to $200/year, choose 2 merchants from: 1stDibs, American Airlines (airfare), Best Buy, Future Personal Training, and Live Nation. $100 per selected merchant. Must register selected brands in Citi account. Resets each calendar year.",
           "defaultUtilization": 0.75,
           "category": "travel"
         },
@@ -902,7 +902,7 @@
           "id": "anniversary-miles",
           "name": "Anniversary Miles Bonus",
           "annualValue": 100,
-          "description": "10,000 bonus miles every year starting on first anniversary. Worth ~$100 toward travel (at 1\u00a2/mile baseline).",
+          "description": "10,000 bonus miles every year starting on first anniversary. Worth ~$100 toward travel (at 1¢/mile baseline).",
           "defaultUtilization": 1.0,
           "category": "miles"
         }
@@ -1088,7 +1088,7 @@
       "name": "Atmos Rewards Summit",
       "issuer": "Bank of America",
       "network": "Visa",
-      "annualFee": 550,
+      "annualFee": 395,
       "pointsCurrencyId": "atmos-rewards",
       "foreignTransactionFee": false,
       "loungeAccess": true,
@@ -1097,15 +1097,15 @@
       "globalEntryCreditAmount": 120,
       "globalEntryCreditFrequencyYears": 4,
       "signupBonus": {
-        "points": 60000,
-        "spendRequired": 3000,
+        "points": 100000,
+        "spendRequired": 6000,
         "spendPeriodMonths": 3,
-        "notes": "Introductory offer. Launched August 2025. Offer details may vary."
+        "notes": "Standard offer: 100,000 Atmos Rewards points + 25,000-pt Global Companion Award after $6,000 spend in first 90 days. Targeted offers up to 105,000 pts may be available."
       },
       "earningRates": {
         "dining": 3,
         "groceries": 1,
-        "flights": 1,
+        "flights": 3,
         "hotels": 1,
         "gas": 1,
         "streaming": 1,
@@ -1115,7 +1115,7 @@
         "rent": 0,
         "other": 1,
         "foreignSpend": 3,
-        "portalNotes": "3x on dining worldwide; 3x on all foreign (non-U.S.) purchases \u2014 unique among transferable-points cards. 1x on all other U.S. purchases. Foreign spend 3x rate not reflected in category totals above (no foreign-spend category in calculator)."
+        "portalNotes": "3x on Alaska Airlines and Hawaiian Airlines purchases; 3x on dining worldwide; 3x on all foreign (non-U.S.) purchases — unique among transferable-points cards. 1x on all other U.S. purchases. Foreign spend 3x rate not reflected in category totals above (no foreign-spend category in calculator)."
       },
       "credits": [
         {
@@ -1130,16 +1130,18 @@
           "id": "lounge-passes",
           "name": "Alaska Lounge Passes",
           "annualValue": 160,
-          "description": "8 Alaska Airlines Lounge single-visit passes per year (~$20\u2013$30 each at the door).",
+          "description": "8 Alaska Airlines Lounge single-visit passes per year (~$20–$30 each at the door).",
           "defaultUtilization": 0.8,
           "category": "travel"
         }
       ],
       "perks": [
-        "3x on All Foreign (Non-U.S.) Purchases \u2014 Unique Differentiator",
+        "3x on All Foreign (Non-U.S.) Purchases — Unique Differentiator",
         "3x on Dining Worldwide",
+        "3x on Alaska Airlines and Hawaiian Airlines Purchases",
         "8 Alaska Airlines Lounge Passes per Year",
         "Annual Global Companion Award (25,000 pts toward companion ticket)",
+        "Free First Checked Bag + Preferred Boarding (cardholder + up to 6 guests on same reservation)",
         "No Foreign Transaction Fees",
         "Global Entry / TSA PreCheck Credit ($120 every 4 yrs)",
         "Transfer to Alaska Mileage Plan and Hawaiian Miles",
