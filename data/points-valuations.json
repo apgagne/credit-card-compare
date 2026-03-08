@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Credit card points valuations in cents per point (cpp). Two values per currency: 'cashback' (redemption via statement credit or cash) and 'transfer' (best value via transfer partners). Sources: The Points Guy March 2026, Upgraded Points March 2026, NerdWallet March 2026.",
-    "lastUpdated": "2026-03-07",
+    "lastUpdated": "2026-03-08",
     "sources": [
       "https://thepointsguy.com/loyalty-programs/monthly-valuations/",
       "https://upgradedpoints.com/travel/points-and-miles-valuations/",
@@ -16,7 +16,7 @@
       "issuer": "Chase",
       "cashbackCpp": 1.0,
       "transferCpp": 2.05,
-      "notes": "Transfer value per TPG March 2026. Cash value = 1¢ baseline; Sapphire Reserve portal = 1.5¢+ (Points Boost up to 1.75¢), Sapphire Preferred portal = 1.25¢. Transfer partners include Hyatt, United, Southwest, British Airways, Air France/KLM, Singapore, Marriott.",
+      "notes": "Transfer value per TPG March 2026. Cash value = 1\u00a2 baseline; Sapphire Reserve portal = 1.5\u00a2+ (Points Boost up to 1.75\u00a2), Sapphire Preferred portal = 1.25\u00a2. Transfer partners include Hyatt, United, Southwest, British Airways, Air France/KLM, Singapore, Marriott.",
       "transferPartners": [
         "World of Hyatt",
         "United MileagePlus",
@@ -39,7 +39,7 @@
       "issuer": "American Express",
       "cashbackCpp": 0.6,
       "transferCpp": 2.0,
-      "notes": "Transfer value per TPG March 2026. Cash/statement credit value is only 0.6¢ — a poor redemption. Best value via airline transfers (ANA, Air Canada, Air France/KLM, Delta, etc.). Transfer partners include 20+ airlines and hotels.",
+      "notes": "Transfer value per TPG March 2026. Cash/statement credit value is only 0.6\u00a2 \u2014 a poor redemption. Best value via airline transfers (ANA, Air Canada, Air France/KLM, Delta, etc.). Transfer partners include 20+ airlines and hotels.",
       "transferPartners": [
         "Air Canada Aeroplan",
         "Air France/KLM Flying Blue",
@@ -67,7 +67,7 @@
       "issuer": "Citi",
       "cashbackCpp": 1.0,
       "transferCpp": 1.9,
-      "notes": "Transfer value per TPG March 2026. Citi added American AAdvantage as a transfer partner in July 2025 — a significant addition. Most transfers happen instantly.",
+      "notes": "Transfer value per TPG March 2026. Citi added American AAdvantage as a transfer partner in July 2025 \u2014 a significant addition. Most transfers happen instantly.",
       "transferPartners": [
         "American AAdvantage",
         "Air France/KLM Flying Blue",
@@ -93,7 +93,7 @@
       "issuer": "Capital One",
       "cashbackCpp": 1.0,
       "transferCpp": 1.85,
-      "notes": "Transfer value per TPG March 2026. Can also be redeemed at 1¢ toward travel purchases or statement credits. Transfer partners include Turkish Airlines (great for US-Europe business class), Air France/KLM, Avianca, and more.",
+      "notes": "Transfer value per TPG March 2026. Can also be redeemed at 1\u00a2 toward travel purchases or statement credits. Transfer partners include Turkish Airlines (great for US-Europe business class), Air France/KLM, Avianca, and more.",
       "transferPartners": [
         "Air Canada Aeroplan",
         "Air France/KLM Flying Blue",
@@ -120,7 +120,7 @@
       "issuer": "Bilt",
       "cashbackCpp": 1.25,
       "transferCpp": 2.2,
-      "notes": "#1 ranked currency per TPG March 2026 at 2.2¢ transfer value. Unique: points can be redeemed toward rent, mortgage down payments, and student loans. Bilt Cash alternative earns 4% back on everyday spending.",
+      "notes": "#1 ranked currency per TPG March 2026 at 2.2\u00a2 transfer value. Unique: points can be redeemed toward rent, mortgage down payments, and student loans. Bilt Cash alternative earns 4% back on everyday spending.",
       "transferPartners": [
         "Air Canada Aeroplan",
         "Air France/KLM Flying Blue",
@@ -146,7 +146,7 @@
       "issuer": "Navy Federal Credit Union",
       "cashbackCpp": 1.0,
       "transferCpp": 1.0,
-      "notes": "Points are worth a flat 1¢ per point regardless of redemption method. No airline or hotel transfer partners — purely cash-equivalent value. 1,000 points = $10.",
+      "notes": "Points are worth a flat 1\u00a2 per point regardless of redemption method. No airline or hotel transfer partners \u2014 purely cash-equivalent value. 1,000 points = $10.",
       "transferPartners": []
     },
     {
@@ -156,7 +156,7 @@
       "issuer": "Wells Fargo",
       "cashbackCpp": 1.0,
       "transferCpp": 1.5,
-      "notes": "Active Cash earns straight 2% cash back (not points). Autograph earns transferable points; transfer to airline/hotel partners via Wells Fargo. Transfer value estimated at 1.5¢ based on partner availability. Active Cash is purely cash back at 1¢/dollar of reward.",
+      "notes": "Active Cash earns straight 2% cash back (not points). Autograph earns transferable points; transfer to airline/hotel partners via Wells Fargo. Transfer value estimated at 1.5\u00a2 based on partner availability. Active Cash is purely cash back at 1\u00a2/dollar of reward.",
       "transferPartners": [
         "Air France/KLM Flying Blue",
         "Avianca LifeMiles",
@@ -164,6 +164,34 @@
         "Iberia Plus",
         "Aer Lingus AerClub",
         "Choice Privileges"
+      ]
+    },
+    {
+      "id": "amex-cash-rewards",
+      "name": "American Express Reward Dollars",
+      "shortName": "Reward Dollars",
+      "issuer": "American Express",
+      "cashbackCpp": 1.0,
+      "transferCpp": 1.0,
+      "notes": "Amex Blue Cash cards earn Reward Dollars redeemable as statement credits at 1\u00a2 per dollar. No transfer partners \u2014 purely cash-back value.",
+      "transferPartners": []
+    },
+    {
+      "id": "atmos-rewards",
+      "name": "Atmos Rewards Points",
+      "shortName": "Atmos Points",
+      "issuer": "Bank of America / Atmos",
+      "cashbackCpp": 1.0,
+      "transferCpp": 1.8,
+      "notes": "Atmos Rewards points transfer to Alaska Mileage Plan (a oneworld member) and Hawaiian Airlines HawaiianMiles. Transfer value estimated at 1.8\u00a2 based on Alaska Mileage Plan partner redemption sweet spots (e.g., Cathay Pacific, Japan Airlines, American AAdvantage). TPG Best New Card for 2026.",
+      "transferPartners": [
+        "Alaska Airlines Mileage Plan",
+        "Hawaiian Airlines HawaiianMiles",
+        "American AAdvantage (via Mileage Plan)",
+        "Japan Airlines Mileage Bank (via Mileage Plan)",
+        "Cathay Pacific Asia Miles (via Mileage Plan)",
+        "British Airways Avios (via Mileage Plan)",
+        "Qantas Frequent Flyer (via Mileage Plan)"
       ]
     }
   ]

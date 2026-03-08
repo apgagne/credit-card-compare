@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Credit card data for comparison tool. Annual fees, earning rates, credits, perks, and sign-up bonuses. Earning rates are multipliers (e.g., 3 = 3x points per dollar). Sources: issuer websites and major rewards publications as of March 2026.",
-    "lastUpdated": "2026-03-07",
+    "lastUpdated": "2026-03-08",
     "spendingCategories": {
       "dining": "Dining & Restaurants (including delivery)",
       "groceries": "Groceries & Supermarkets",
@@ -38,7 +38,7 @@
       "pointsCurrencyId": "chase-ultimate-rewards",
       "foreignTransactionFee": false,
       "loungeAccess": true,
-      "loungeDetails": "Chase Sapphire Lounges (unlimited guests), Priority Pass (1,300+ lounges), Air Canada Maple Leaf Lounges & Cafés",
+      "loungeDetails": "Chase Sapphire Lounges (unlimited guests), Priority Pass (1,300+ lounges), Air Canada Maple Leaf Lounges & Caf\u00e9s",
       "globalEntryCredit": true,
       "globalEntryCreditAmount": 120,
       "globalEntryCreditFrequencyYears": 4,
@@ -232,6 +232,49 @@
       },
       "credits": [],
       "perks": [
+        "Purchase Protection",
+        "Extended Warranty Protection",
+        "Trip Cancellation & Interruption Insurance",
+        "Note: Foreign transaction fees apply (3%)"
+      ]
+    },
+    {
+      "id": "chase-freedom-flex",
+      "name": "Chase Freedom Flex",
+      "issuer": "Chase",
+      "network": "Mastercard",
+      "annualFee": 0,
+      "pointsCurrencyId": "chase-ultimate-rewards",
+      "foreignTransactionFee": true,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "points": 20000,
+        "spendRequired": 500,
+        "spendPeriodMonths": 3,
+        "notes": "Equivalent to $200 cash back. Offers may vary. Often includes a 5% grocery bonus for first year (up to $12,000 spend)."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 1,
+        "hotels": 1,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 3,
+        "rent": 0,
+        "other": 1,
+        "portalFlights": 5,
+        "portalHotels": 5,
+        "portalNotes": "5x on travel via Chase Travel portal; 5x on rotating quarterly categories (up to $1,500 spend/quarter \u2014 common categories include grocery stores, Amazon, gas stations, PayPal, etc.). Rates shown above reflect fixed base rates only."
+      },
+      "credits": [],
+      "perks": [
+        "5x on Rotating Quarterly Categories (up to $1,500/quarter)",
+        "Points Pool with CSR/CSP for Higher Transfer/Portal Value",
+        "Cell Phone Protection (up to $800, $25 deductible)",
         "Purchase Protection",
         "Extended Warranty Protection",
         "Trip Cancellation & Interruption Insurance",
@@ -449,7 +492,7 @@
       "name": "American Express Gold",
       "issuer": "American Express",
       "network": "Amex",
-      "annualFee": 325,
+      "annualFee": 250,
       "pointsCurrencyId": "amex-membership-rewards",
       "foreignTransactionFee": false,
       "loungeAccess": false,
@@ -492,6 +535,22 @@
           "description": "$7/month ($84/year) at U.S. Dunkin' locations.",
           "defaultUtilization": 0.5,
           "category": "dining"
+        },
+        {
+          "id": "uber-cash",
+          "name": "Uber Cash",
+          "annualValue": 120,
+          "description": "$10/month ($120/year) in Uber Cash for Uber Eats orders or Uber rides in the U.S. Must add card to Uber app.",
+          "defaultUtilization": 0.8,
+          "category": "dining"
+        },
+        {
+          "id": "resy-credit",
+          "name": "Resy Dining Credit",
+          "annualValue": 100,
+          "description": "Up to $100/year ($50 Jan\u2013Jun, $50 Jul\u2013Dec) in statement credits on eligible dining purchases at Resy restaurants.",
+          "defaultUtilization": 0.7,
+          "category": "dining"
         }
       ],
       "perks": [
@@ -502,6 +561,60 @@
         "Car Rental Loss & Damage Insurance",
         "Purchase Protection",
         "Extended Warranty"
+      ]
+    },
+    {
+      "id": "amex-blue-cash-preferred",
+      "name": "American Express Blue Cash Preferred",
+      "issuer": "American Express",
+      "network": "Amex",
+      "annualFee": 95,
+      "pointsCurrencyId": "amex-cash-rewards",
+      "isCashBackCard": true,
+      "foreignTransactionFee": true,
+      "loungeAccess": false,
+      "globalEntryCredit": false,
+      "signupBonus": {
+        "cashBonus": 250,
+        "spendRequired": 3000,
+        "spendPeriodMonths": 6,
+        "notes": "Statement credit after $3,000 spend in first 6 months. Annual fee waived first year."
+      },
+      "earningRates": {
+        "dining": 1,
+        "groceries": 6,
+        "flights": 1,
+        "hotels": 1,
+        "gas": 3,
+        "streaming": 6,
+        "telecom": 1,
+        "transit": 3,
+        "drugstores": 1,
+        "rent": 0,
+        "other": 1,
+        "portalNotes": "6% at U.S. supermarkets capped at $6,000/yr (then 1%); 6% on select U.S. streaming services; 3% at U.S. gas stations and transit. No portal bonus categories."
+      },
+      "credits": [
+        {
+          "id": "disney-bundle-credit",
+          "name": "Disney Bundle Streaming Credit",
+          "annualValue": 84,
+          "description": "$7/month ($84/year) back as statement credit on eligible Disney Bundle subscription (Disney+, Hulu, ESPN+). Must enroll.",
+          "defaultUtilization": 0.9,
+          "category": "streaming"
+        }
+      ],
+      "perks": [
+        "6% Cash Back at U.S. Supermarkets (up to $6,000/yr, then 1%)",
+        "6% on Select U.S. Streaming Services",
+        "3% at U.S. Gas Stations and Transit",
+        "Disney Bundle Monthly Credit ($7/month)",
+        "Return Protection",
+        "Purchase Protection",
+        "Extended Warranty",
+        "Car Rental Loss & Damage Insurance",
+        "Note: Foreign transaction fees apply (2.7%)",
+        "Note: Annual fee waived first year"
       ]
     },
     {
@@ -522,7 +635,7 @@
         "spendRequired": 3500,
         "spendPeriodMonths": 3,
         "bonusExtras": "Free Amazon Prime membership (1 year, ~$139 value)",
-        "notes": "Current offer valid Jan 2 – Jun 30, 2026. 1 point = 1¢, so 35,000 pts = $350."
+        "notes": "Current offer valid Jan 2 \u2013 Jun 30, 2026. 1 point = 1\u00a2, so 35,000 pts = $350."
       },
       "earningRates": {
         "dining": 2,
@@ -662,8 +775,24 @@
           "id": "blacklane-credit",
           "name": "Blacklane Chauffeur Credit",
           "annualValue": 200,
-          "description": "Up to $200/year ($100 Jan–Jun, $100 Jul–Dec) in statement credits on Blacklane chauffeur/limo service bookings.",
+          "description": "Up to $200/year ($100 Jan\u2013Jun, $100 Jul\u2013Dec) in statement credits on Blacklane chauffeur/limo service bookings.",
           "defaultUtilization": 0.4,
+          "category": "travel"
+        },
+        {
+          "id": "splurge-credit",
+          "name": "Splurge Credit",
+          "annualValue": 200,
+          "description": "Up to $200/year ($100 per category, choose 2 of: American Airlines flights, Best Buy, Live Nation). Statement credit applied to eligible purchases.",
+          "defaultUtilization": 0.75,
+          "category": "travel"
+        },
+        {
+          "id": "admirals-club-passes",
+          "name": "Admirals Club Day Passes",
+          "annualValue": 100,
+          "description": "4 American Airlines Admirals Club one-day passes per year (valid for cardholder + immediate family or up to 2 guests). Individual day passes sell for ~$79+ each.",
+          "defaultUtilization": 0.7,
           "category": "travel"
         }
       ],
@@ -773,7 +902,7 @@
           "id": "anniversary-miles",
           "name": "Anniversary Miles Bonus",
           "annualValue": 100,
-          "description": "10,000 bonus miles every year starting on first anniversary. Worth ~$100 toward travel (at 1¢/mile baseline).",
+          "description": "10,000 bonus miles every year starting on first anniversary. Worth ~$100 toward travel (at 1\u00a2/mile baseline).",
           "defaultUtilization": 1.0,
           "category": "miles"
         }
@@ -952,6 +1081,71 @@
         "Travel Protections",
         "Mastercard World Legend Benefits",
         "Purchase Protection"
+      ]
+    },
+    {
+      "id": "atmos-rewards-summit",
+      "name": "Atmos Rewards Summit",
+      "issuer": "Bank of America",
+      "network": "Visa",
+      "annualFee": 550,
+      "pointsCurrencyId": "atmos-rewards",
+      "foreignTransactionFee": false,
+      "loungeAccess": true,
+      "loungeDetails": "8 Alaska Airlines Lounge passes per year",
+      "globalEntryCredit": true,
+      "globalEntryCreditAmount": 120,
+      "globalEntryCreditFrequencyYears": 4,
+      "signupBonus": {
+        "points": 60000,
+        "spendRequired": 3000,
+        "spendPeriodMonths": 3,
+        "notes": "Introductory offer. Launched August 2025. Offer details may vary."
+      },
+      "earningRates": {
+        "dining": 3,
+        "groceries": 1,
+        "flights": 1,
+        "hotels": 1,
+        "gas": 1,
+        "streaming": 1,
+        "telecom": 1,
+        "transit": 1,
+        "drugstores": 1,
+        "rent": 0,
+        "other": 1,
+        "foreignSpend": 3,
+        "portalNotes": "3x on dining worldwide; 3x on all foreign (non-U.S.) purchases \u2014 unique among transferable-points cards. 1x on all other U.S. purchases. Foreign spend 3x rate not reflected in category totals above (no foreign-spend category in calculator)."
+      },
+      "credits": [
+        {
+          "id": "companion-award",
+          "name": "Global Companion Award",
+          "annualValue": 200,
+          "description": "Annual 25,000 Atmos Rewards points companion award redeemable toward a companion ticket on Alaska Airlines or Hawaiian Airlines. Estimated value ~$200 depending on itinerary.",
+          "defaultUtilization": 0.7,
+          "category": "travel"
+        },
+        {
+          "id": "lounge-passes",
+          "name": "Alaska Lounge Passes",
+          "annualValue": 160,
+          "description": "8 Alaska Airlines Lounge single-visit passes per year (~$20\u2013$30 each at the door).",
+          "defaultUtilization": 0.8,
+          "category": "travel"
+        }
+      ],
+      "perks": [
+        "3x on All Foreign (Non-U.S.) Purchases \u2014 Unique Differentiator",
+        "3x on Dining Worldwide",
+        "8 Alaska Airlines Lounge Passes per Year",
+        "Annual Global Companion Award (25,000 pts toward companion ticket)",
+        "No Foreign Transaction Fees",
+        "Global Entry / TSA PreCheck Credit ($120 every 4 yrs)",
+        "Transfer to Alaska Mileage Plan and Hawaiian Miles",
+        "oneworld Alliance Redemptions via Mileage Plan",
+        "TPG Best New Card for 2026",
+        "Launched August 2025"
       ]
     }
   ]
