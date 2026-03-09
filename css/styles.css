@@ -219,7 +219,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .credit-default-item {
@@ -291,6 +291,83 @@ body {
 }
 
 .util-clear-btn:hover { color: var(--red); border-color: var(--red); }
+
+.credit-default-item { cursor: pointer; }
+
+.credit-default-item.expanded {
+  border-color: var(--accent);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.expand-chevron {
+  font-size: 10px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  user-select: none;
+  margin: 0 6px;
+}
+
+/* ===== CREDIT SUB-LIST (expanded category view) ===== */
+.credit-sub-list-container {
+  border: 1px solid var(--accent);
+  border-top: none;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background: var(--bg);
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.credit-sub-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.credit-sub-header span:last-child {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.credit-sub-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.credit-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  flex-wrap: wrap;
+}
+
+.credit-sub-card {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  min-width: 170px;
+  flex-shrink: 0;
+}
+
+.credit-sub-name {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 500;
+  flex: 1;
+  min-width: 140px;
+}
 
 /* ===== CREDIT SOURCE INDICATOR (in expanded card rows) ===== */
 .util-source {

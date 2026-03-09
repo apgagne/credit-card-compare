@@ -26,6 +26,7 @@ const state = {
   sortKey: 'year1',
   sortDir: 'desc',
   expandedCard: null,
+  expandedCreditCategory: null, // which credit category is expanded in Profile tab
   creditOverrides: {},      // { cardId: { creditId: utilization } } — explicit user overrides only
   globalCreditUtilization: {  // null = use each credit's own JSON default
     dining: null, travel: null, subscriptions: null, entertainment: null,
@@ -254,6 +255,7 @@ function updateSpendTotal() {
 
 function renderCreditDefaults() {
   const container = document.getElementById('credit-defaults-grid');
+  const subContainer = document.getElementById('credit-sub-list-container');
   if (!container) return;
   container.innerHTML = '';
 
@@ -264,6 +266,8 @@ function renderCreditDefaults() {
       if (credit.category && !credit.oneTime) usedCategories.add(credit.category);
     });
   });
+
+  let expandedKeyFound = false;
 
   Object.entries(CREDIT_CATEGORY_META).forEach(([key, meta]) => {
     if (!usedCategories.has(key)) return;
@@ -278,15 +282,18 @@ function renderCreditDefaults() {
 
     const currentVal = state.globalCreditUtilization[key];
     const displayVal = currentVal !== null ? Math.round(currentVal * 100) : '';
+    const isExpanded = state.expandedCreditCategory === key;
+    if (isExpanded) expandedKeyFound = true;
 
     const div = document.createElement('div');
-    div.className = 'credit-default-item';
+    div.className = `credit-default-item${isExpanded ? ' expanded' : ''}`;
     div.innerHTML = `
       <span class="credit-default-icon">${meta.icon}</span>
       <div class="credit-default-label">
         ${meta.label}
         <small>${meta.hint} · ${count} credit${count !== 1 ? 's' : ''} across all cards</small>
       </div>
+      <span class="expand-chevron">${isExpanded ? '▼' : '▶'}</span>
       <div class="credit-default-input-wrap">
         <input class="credit-default-input" type="number" min="0" max="100" step="5"
                placeholder="—" value="${displayVal}" data-category="${key}" />
@@ -298,6 +305,23 @@ function renderCreditDefaults() {
     const input = div.querySelector('.credit-default-input');
     const clearBtn = div.querySelector('.util-clear-btn');
 
+    // Click anywhere on the item (except the input/button) to toggle expanded sub-list
+    div.addEventListener('click', () => {
+      state.expandedCreditCategory = state.expandedCreditCategory === key ? null : key;
+      renderCreditDefaults();
+    });
+    input.addEventListener('click', e => e.stopPropagation());
+    clearBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      state.globalCreditUtilization[key] = null;
+      input.value = '';
+      clearBtn.style.visibility = 'hidden';
+      renderCardsTable();
+      if (state.expandedCreditCategory === key && subContainer) {
+        renderCreditSubList(subContainer, key);
+      }
+    });
+
     input.addEventListener('input', e => {
       const raw = e.target.value.trim();
       state.globalCreditUtilization[key] = raw === ''
@@ -305,17 +329,92 @@ function renderCreditDefaults() {
         : Math.max(0, Math.min(100, parseFloat(raw) || 0)) / 100;
       clearBtn.style.visibility = state.globalCreditUtilization[key] !== null ? 'visible' : 'hidden';
       renderCardsTable();
-    });
-
-    clearBtn.addEventListener('click', () => {
-      state.globalCreditUtilization[key] = null;
-      input.value = '';
-      clearBtn.style.visibility = 'hidden';
-      renderCardsTable();
+      // Update sub-list source indicators live if this category is expanded
+      if (state.expandedCreditCategory === key && subContainer) {
+        renderCreditSubList(subContainer, key);
+      }
     });
 
     container.appendChild(div);
   });
+
+  // Render (or hide) the sub-list for the expanded category
+  if (subContainer) {
+    if (state.expandedCreditCategory && expandedKeyFound) {
+      subContainer.style.display = '';
+      renderCreditSubList(subContainer, state.expandedCreditCategory);
+    } else {
+      subContainer.style.display = 'none';
+      subContainer.innerHTML = '';
+    }
+  }
+}
+
+function renderCreditSubList(container, categoryKey) {
+  const meta = CREDIT_CATEGORY_META[categoryKey];
+  container.innerHTML = '';
+
+  const header = document.createElement('div');
+  header.className = 'credit-sub-header';
+  header.innerHTML = `
+    <span>${meta.icon} ${meta.label} — Individual Credits</span>
+    <span>Override per credit below. Blank = use the category default above.</span>`;
+  container.appendChild(header);
+
+  const list = document.createElement('div');
+  list.className = 'credit-sub-items';
+
+  state.cards.forEach(card => {
+    (card.credits || []).forEach(credit => {
+      if (credit.category !== categoryKey || credit.oneTime) return;
+
+      const util = getUtilization(card, credit);
+      const hasCardOverride = state.creditOverrides[card.id]?.[credit.id] !== undefined;
+      const globalVal = state.globalCreditUtilization[credit.category];
+      const sourceClass = hasCardOverride ? 'card-override' : (globalVal !== null ? 'global' : 'default');
+      const sourceLabel = hasCardOverride ? 'Card override' : (globalVal !== null ? 'Global rule' : 'Default');
+
+      const row = document.createElement('div');
+      row.className = 'credit-sub-item';
+      row.innerHTML = `
+        <span class="credit-sub-card">${card.name}</span>
+        <span class="credit-sub-name">${credit.name}
+          <span style="color:var(--text-muted);font-size:10px;font-weight:400">${fmt(credit.annualValue)}</span>
+        </span>
+        <span class="util-source ${sourceClass}" id="sub-src-${card.id}-${credit.id}">${sourceLabel}</span>
+        <button class="util-reset" id="sub-rst-${card.id}-${credit.id}"
+                style="visibility:${hasCardOverride ? 'visible' : 'hidden'}">reset</button>
+        <input class="utilization-input" type="number" min="0" max="100" step="5"
+               value="${Math.round(util * 100)}"
+               data-card="${card.id}" data-credit="${credit.id}" />
+        <span style="font-size:11px;color:var(--text-muted)">%</span>`;
+
+      const subInput = row.querySelector('.utilization-input');
+      const resetBtn = row.querySelector('.util-reset');
+
+      subInput.addEventListener('input', e => {
+        const pct = Math.max(0, Math.min(100, parseFloat(e.target.value) || 0));
+        if (!state.creditOverrides[card.id]) state.creditOverrides[card.id] = {};
+        state.creditOverrides[card.id][credit.id] = pct / 100;
+        // Update source indicator live without full re-render
+        const srcEl = document.getElementById(`sub-src-${card.id}-${credit.id}`);
+        const rstEl = document.getElementById(`sub-rst-${card.id}-${credit.id}`);
+        if (srcEl) { srcEl.className = 'util-source card-override'; srcEl.textContent = 'Card override'; }
+        if (rstEl) rstEl.style.visibility = 'visible';
+        renderCardsTable();
+      });
+
+      resetBtn.addEventListener('click', () => {
+        delete state.creditOverrides[card.id][credit.id];
+        renderCardsTable();
+        renderCreditSubList(container, categoryKey); // re-render sub-list only
+      });
+
+      list.appendChild(row);
+    });
+  });
+
+  container.appendChild(list);
 }
 
 // ── Cards Table ───────────────────────────────────────────────
