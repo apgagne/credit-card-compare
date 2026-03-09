@@ -98,6 +98,22 @@
           "category": "dining"
         },
         {
+          "id": "doordash-dashpass",
+          "name": "DoorDash & DashPass Credit",
+          "annualValue": 420,
+          "description": "$5/month on restaurant orders + $20/month for groceries and retail. DashPass subscription nominally worth $120/year. Must add Sapphire Reserve to DoorDash account.",
+          "defaultUtilization": 0.25,
+          "category": "dining"
+        },
+         {
+          "id": "lyft-credit",
+          "name": "Lyft Credit",
+          "annualValue": 120,
+          "description": "$10/month on Lyft rides.",
+          "defaultUtilization": 0.5,
+          "category": "transit"
+        },
+        {
           "id": "stubhub-credit",
           "name": "StubHub Entertainment Credit (Biannual)",
           "annualValue": 600,
@@ -106,8 +122,8 @@
           "category": "entertainment"
         },
         {
-          "id": "membership-credit",
-          "name": "Monthly Membership Credit",
+          "id": "peloton-credit",
+          "name": "Monthly Peloton Membership Credit",
           "annualValue": 120,
           "description": "$10/month in statement credits on eligible memberships.",
           "defaultUtilization": 0.8,
@@ -986,7 +1002,8 @@
       "annualFee": 395,
       "pointsCurrencyId": "atmos-rewards",
       "foreignTransactionFee": false,
-      "loungeAccess": false,
+      "loungeAccess": true,
+      "loungeDetails": "8 Alaska Airlines Lounge Guest Passes",
       "globalEntryCredit": false,
       "signupBonus": {
         "points": 100000,
@@ -1022,7 +1039,6 @@
         "No Foreign Transaction Fees",
         "3x Points on All Foreign Purchases",
         "Annual Companion Award (25,000 points, ~$250 value)",
-        "8 Alaska Airlines Lounge Guest Passes",
         "8 Gogo In-Flight Wi-Fi Passes",
         "First Checked Bag Free (cardholder + companions on Alaska flights)",
         "Priority Boarding on Alaska Airlines",
