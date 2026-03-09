@@ -92,8 +92,8 @@
         {
           "id": "dining-credit",
           "name": "Dining Credit (Biannual)",
-          "annualValue": 600,
-          "description": "$300 every 6 months ($600/year) on qualifying dining purchases through Chase Sapphire Reserve Exclusive Tables. Starts 2026.",
+          "annualValue": 300,
+          "description": "$150 every 6 months ($300/year) on qualifying dining purchases through Chase Sapphire Reserve Exclusive Tables. Starts 2026.",
           "defaultUtilization": 0.7,
           "category": "dining"
         },
