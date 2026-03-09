@@ -26,7 +26,22 @@ const state = {
   sortKey: 'year1',
   sortDir: 'desc',
   expandedCard: null,
-  creditOverrides: {},      // { cardId: { creditId: utilization } }
+  creditOverrides: {},      // { cardId: { creditId: utilization } } — explicit user overrides only
+  globalCreditUtilization: {  // null = use each credit's own JSON default
+    dining: null, travel: null, subscriptions: null, entertainment: null,
+    transit: null, lifestyle: null, cash: null, miles: null,
+  },
+};
+
+const CREDIT_CATEGORY_META = {
+  dining:        { label: 'Dining Credits',        icon: '🍽️', hint: "restaurant credits, Grubhub, Resy, Dunkin'" },
+  travel:        { label: 'Travel Credits',         icon: '✈️', hint: 'hotel, airline fee, lounge, companion award' },
+  subscriptions: { label: 'Subscription Credits',  icon: '📺', hint: 'streaming, DashPass, Apple services' },
+  entertainment: { label: 'Entertainment Credits', icon: '🎭', hint: 'StubHub, concerts, events' },
+  transit:       { label: 'Transit Credits',        icon: '🚗', hint: 'Uber Cash, Lyft, rideshare' },
+  lifestyle:     { label: 'Lifestyle Credits',      icon: '🏃', hint: 'Lululemon, Oura, Best Buy, fitness' },
+  cash:          { label: 'Cash Credits',           icon: '💵', hint: 'annual cash bonuses' },
+  miles:         { label: 'Miles Bonuses',          icon: '🌟', hint: 'anniversary miles bonuses' },
 };
 
 const CATEGORY_META = {
@@ -53,12 +68,8 @@ async function init() {
     state.cards = cardsData.cards;
     state.currencies = valuationsData.currencies;
 
-    // initialise credit overrides from defaults
     state.cards.forEach(card => {
       state.creditOverrides[card.id] = {};
-      (card.credits || []).forEach(credit => {
-        state.creditOverrides[card.id][credit.id] = credit.defaultUtilization;
-      });
     });
 
     renderAll();
@@ -95,6 +106,22 @@ function getCpp(currencyId) {
     : currency.cashbackCpp / 100;
 }
 
+/**
+ * Resolves credit utilization with priority:
+ * 1. Per-card explicit override (user changed in card expanded row)
+ * 2. Global category default (user set in Profile tab)
+ * 3. JSON default (credit.defaultUtilization)
+ */
+function getUtilization(card, credit) {
+  const perCard = state.creditOverrides[card.id]?.[credit.id];
+  if (perCard !== undefined) return perCard;
+  if (credit.category) {
+    const global = state.globalCreditUtilization[credit.category];
+    if (global !== null && global !== undefined) return global;
+  }
+  return credit.defaultUtilization;
+}
+
 // ── Calculation Engine ────────────────────────────────────────
 
 /**
@@ -124,14 +151,9 @@ function calcSpendRewards(card) {
  * Calculates annual credits value, respecting per-credit utilization overrides.
  */
 function calcCreditsValue(card) {
-  const overrides = state.creditOverrides[card.id] || {};
   return (card.credits || []).reduce((sum, credit) => {
-    // Skip one-time credits from recurring value
     if (credit.oneTime) return sum;
-    const utilization = overrides[credit.id] !== undefined
-      ? overrides[credit.id]
-      : credit.defaultUtilization;
-    return sum + credit.annualValue * utilization;
+    return sum + credit.annualValue * getUtilization(card, credit);
   }, 0);
 }
 
@@ -140,13 +162,9 @@ function calcCreditsValue(card) {
  * count in Year 1, not recurring years.
  */
 function calcOneTimeCreditsValue(card) {
-  const overrides = state.creditOverrides[card.id] || {};
   return (card.credits || []).reduce((sum, credit) => {
     if (!credit.oneTime) return sum;
-    const utilization = overrides[credit.id] !== undefined
-      ? overrides[credit.id]
-      : credit.defaultUtilization;
-    return sum + credit.annualValue * utilization;
+    return sum + credit.annualValue * getUtilization(card, credit);
   }, 0);
 }
 
@@ -226,11 +244,78 @@ function renderProfile() {
   });
 
   updateSpendTotal();
+  renderCreditDefaults();
 }
 
 function updateSpendTotal() {
   const total = Object.values(state.spending).reduce((s, v) => s + v, 0);
   document.getElementById('spend-total').textContent = fmt(total);
+}
+
+function renderCreditDefaults() {
+  const container = document.getElementById('credit-defaults-grid');
+  if (!container) return;
+  container.innerHTML = '';
+
+  // Find credit categories actually used by non-oneTime credits in the loaded data
+  const usedCategories = new Set();
+  state.cards.forEach(card => {
+    (card.credits || []).forEach(credit => {
+      if (credit.category && !credit.oneTime) usedCategories.add(credit.category);
+    });
+  });
+
+  Object.entries(CREDIT_CATEGORY_META).forEach(([key, meta]) => {
+    if (!usedCategories.has(key)) return;
+
+    // Count how many non-oneTime credits across all cards belong to this category
+    let count = 0;
+    state.cards.forEach(card => {
+      (card.credits || []).forEach(credit => {
+        if (credit.category === key && !credit.oneTime) count++;
+      });
+    });
+
+    const currentVal = state.globalCreditUtilization[key];
+    const displayVal = currentVal !== null ? Math.round(currentVal * 100) : '';
+
+    const div = document.createElement('div');
+    div.className = 'credit-default-item';
+    div.innerHTML = `
+      <span class="credit-default-icon">${meta.icon}</span>
+      <div class="credit-default-label">
+        ${meta.label}
+        <small>${meta.hint} · ${count} credit${count !== 1 ? 's' : ''} across all cards</small>
+      </div>
+      <div class="credit-default-input-wrap">
+        <input class="credit-default-input" type="number" min="0" max="100" step="5"
+               placeholder="—" value="${displayVal}" data-category="${key}" />
+        <span style="font-size:11px;color:var(--text-muted);margin-left:3px">%</span>
+        <button class="util-clear-btn" style="visibility:${currentVal !== null ? 'visible' : 'hidden'}"
+                data-category="${key}" title="Clear — revert to per-card defaults">×</button>
+      </div>`;
+
+    const input = div.querySelector('.credit-default-input');
+    const clearBtn = div.querySelector('.util-clear-btn');
+
+    input.addEventListener('input', e => {
+      const raw = e.target.value.trim();
+      state.globalCreditUtilization[key] = raw === ''
+        ? null
+        : Math.max(0, Math.min(100, parseFloat(raw) || 0)) / 100;
+      clearBtn.style.visibility = state.globalCreditUtilization[key] !== null ? 'visible' : 'hidden';
+      renderCardsTable();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      state.globalCreditUtilization[key] = null;
+      input.value = '';
+      clearBtn.style.visibility = 'hidden';
+      renderCardsTable();
+    });
+
+    container.appendChild(div);
+  });
 }
 
 // ── Cards Table ───────────────────────────────────────────────
@@ -341,9 +426,12 @@ function buildDetailPanel(card) {
 
   if (card.credits && card.credits.length > 0) {
     card.credits.forEach(credit => {
-      const overrides = state.creditOverrides[card.id] || {};
-      const util = overrides[credit.id] !== undefined ? overrides[credit.id] : credit.defaultUtilization;
+      const util = getUtilization(card, credit);
       const effectiveValue = credit.annualValue * util;
+      const hasCardOverride = state.creditOverrides[card.id]?.[credit.id] !== undefined;
+      const globalVal = credit.category ? state.globalCreditUtilization[credit.category] : null;
+      const sourceClass = hasCardOverride ? 'card-override' : (globalVal !== null ? 'global' : 'default');
+      const sourceLabel = hasCardOverride ? 'Card override' : (globalVal !== null ? 'Global rule' : 'Default');
 
       const item = document.createElement('div');
       item.className = 'credit-item';
@@ -355,7 +443,10 @@ function buildDetailPanel(card) {
         <div class="credit-item-desc">${credit.description}</div>
         ${!credit.oneTime ? `
         <div class="utilization-row">
-          <span class="utilization-label">Face value: ${fmt(credit.annualValue)} — I'll use:</span>
+          <span class="utilization-label">Face value: ${fmt(credit.annualValue)}</span>
+          <span class="util-source ${sourceClass}">${sourceLabel}</span>
+          <button class="util-reset" style="visibility:${hasCardOverride ? 'visible' : 'hidden'}"
+                  data-card="${card.id}" data-credit="${credit.id}">reset</button>
           <input class="utilization-input" type="number" min="0" max="100" step="5"
                  value="${Math.round(util * 100)}"
                  data-card="${card.id}" data-credit="${credit.id}" />
@@ -373,6 +464,13 @@ function buildDetailPanel(card) {
           // update table values
           refreshCardRowValues(card.id);
         });
+        const resetBtn = item.querySelector('.util-reset');
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            delete state.creditOverrides[card.id][credit.id];
+            renderCardsTable();
+          });
+        }
       }
       creditsSection.appendChild(item);
     });
