@@ -635,7 +635,14 @@ function buildDetailPanel(card) {
       <div class="line total"><span>Recurring Net Return</span><span class="${calcRecurring(card) >= 0 ? 'text-green' : 'text-red'}">${fmt(calcRecurring(card))}</span></div>
     </div>
     ${card.signupBonus?.notes ? `<p style="font-size:10px;color:var(--text-muted);margin-top:8px">ℹ ${card.signupBonus.notes}</p>` : ''}
-    ${card.membershipRequired ? `<p style="font-size:10px;color:var(--red);margin-top:6px">⚠ ${card.membershipRequired}</p>` : ''}`;
+    ${card.membershipRequired ? `<p style="font-size:10px;color:var(--red);margin-top:6px">⚠ ${card.membershipRequired}</p>` : ''}
+    ${'chase-sapphire-reserve,chase-sapphire-preferred'.includes(card.id) ? `
+    <p style="font-size:10px;color:var(--text-muted);margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
+      If you found this website helpful and decide to get the Chase Sapphire Reserve or Preferred,
+      please consider using my
+      <a href="https://www.referyourchasecard.com/19v/KK4S46MNMU" target="_blank" rel="noopener"
+         style="color:var(--accent);text-decoration:underline">referral link</a>.
+    </p>` : ''}`;
 
   panel.appendChild(creditsSection);
   panel.appendChild(earnSection);
